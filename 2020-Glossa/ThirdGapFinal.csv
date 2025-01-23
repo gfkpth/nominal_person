@@ -1,0 +1,83 @@
+"","language","glottolog","genus","print","lat","lon","P3.hjust","P3.vjust","P3.printname","Oc.printname","Oc.hjust","Oc.vjust","Art.neq.3rd","Pers3","third.Dem","NomPers.art.possible"
+"1","Japanese","nucl1643","Japonic",1,35,135,0.6,1.6,"Japanese","Japanese",-0.1,0.5,"n","y","n",NA
+"2","Korean","kore1280","Koreanic",1,37.5,128,0.4,-0.8,"Korean","Korean",0,-0.7,"n","y","n",NA
+"3","Evenki","even1259","Tungusic",1,61.972,94.689,0.5,-0.8,"Evenki","Evenki",0.5,-0.7,"n","y","n",NA
+"4","Turkish","nucl1301","Turkic",1,39.8667,32.8667,0,1.5,"Turkish","Turkish",0,1.5,"n","y","y",NA
+"5","Mangarayi","mang1381","Mangarrayi-Maran, Mangarrayi",1,-14.8,133.5,1.1,0.5,"Mangarayi","Mangarayi",1.15,0.5,"n","y","y",NA
+"6","Kayardild","kaya1319","Tangkic",1,-17.0695,139.489,1.1,0.3,"Kayardild","Kayardild",0.3,1.7,"n","y","n",NA
+"7","Diyari","dier1241","Pama-Nyungan, Karna",1,-28.1667,138,-0.2,0.5,"Diyari","Diyari",0.5,-0.7,"n","y","n",NA
+"8","Warlpiri","warl1254","Pama-Nyungan, Desert Nyungic",1,-20.1008,131.05,1.15,0.8,"Warlpiri","Warlpiri",1.15,0.5,"n","y","n",NA
+"9","Pitjantjatjara","pitj1243","Pama-Nyungan, Desert Nyungic",1,-26.9704,131.357,0.9,1.6,"Pitjantjatjara","Pitjantjatjara",0.5,-0.8,"n","y","n",NA
+"10","Guugu Yimidhirr","gugu1255","Pama-Nyungan, Yimidhirr-Yalanji-Yidinic",1,-14.9424,144.831,1,-0.4,"GYimidhirr","Guugu Yimidhirr",0.5,-0.7,"n","y","n",NA
+"11","Kuku-Yalanji","kuku1273","Pama-Nyungan, Yimidhirr-Yalanji-Yidinic",1,-16.0036,145.188,-0.1,0.6,"KYalanji","Kuku-Yalanji",-0.1,0.5,"n","y","n",NA
+"12","Imonda","imon1245","Border, Waris",1,-3.31228,141.171,0.5,-0.7,NA,"Imonda",1.15,0.5,"n","y","n",NA
+"13","Bilua","bilu1245","Bliua",1,-7.92388,156.663,0.7,-0.8,"Bilua","Bilua",1.2,-0.2,"n","y","y",NA
+"14","Lavukaleve","lavu1241","Lavukaleve",1,-9.05569,159.119,0,1.6,"Lavukaleve","Lavukaleve",0.3,1.7,"y","y","y","y"
+"15","Manambu","mana1298","Sepik, Ndu",1,-4.19082,142.862,0.1,-0.6,NA,"Manambu",-0.1,0.1,"n","y","n",NA
+"16","Awtuw","awtu1239","Sepik, Ram",1,-3.53129,141.928,1,1.6,NA,"Awtuw",1,1.6,"n","y","n",NA
+"17","Fore","fore1270","TNG, Kainantu-Goroka",1,-6.64473,145.5065,0.5,1.6,NA,"Fore",1,1.7,"n","y","n",NA
+"18","Yagaria","yaga1260","TNG, Kainantu-Goroka",1,-6.32432,145.388,-0.8,0.8,NA,"Yagaria",-0.2,0.4,"n","y","n",NA
+"19","Amele","amel1241","TNG, Madang",1,-5.29126,145.687,-0.7,-0.2,NA,"Amele",0.5,1.4,"n","y","n",NA
+"20","Usan","usan1239","TNG, Madang",1,-4.84265,145.362,0.4,-0.7,NA,"Usan",-0.2,0,"y","y","n","unclear"
+"21","Kobon","kobo1249","TNG, Madang",1,-5.16446,144.46,1.4,1.3,NA,"Kobon",1,1.4,"n","y","n",NA
+"22","Kamang","kama1365","TNG, TAP",1,-8.26897,124.792,0.8,-0.8,NA,"Kamang",0.1,-0.9,"y","y","n","unclear"
+"23","Sawila","sawi1256","TNG, TAP",1,-8.29105,125.078,0.2,1.7,NA,"Sawila",-0.2,0.4,"n","y","n",NA
+"24","Kaera","kaer1234","TNG, TAP",1,-8.3287,124.0177,NA,NA,NA,"Kaera",1.2,0.4,"n","y","n",NA
+"25","Western Pantar","lamm1241","TNG, TAP",1,-8.52787,124.057,1.15,1.1,NA,"W.Pantar",0.8,1.6,"y","y","n","y"
+"26","Hausa","haus1257","Afroasiatic, Chadic",1,11.1513,8.7804,0.4,-0.7,"Hausa","Hausa",0.4,-0.7,"y","y","n","y"
+"27","Mupun","mwag1236","Afroasiatic, Chadic",1,9.47205,8.96522,-0.2,0.4,"Mupun","Mupun",-0.1,0.4,"y","y","n","y"
+"28","Cairene Egyptian Colloquial Arabic","egyp1253","Afroasiatic, Semitic",1,31,31,0.5,1.7,"Cair. Arabic","Cair. Arabic",0.8,1.6,"y","n","n","y"
+"29","Gulf Arabic","gulf1241","Afroasiatic, Semitic",1,30.17,47.5,0.4,-0.8,"Gulf Arabic","Gulf Arabic",0.4,-0.7,"y","n","n","y"
+"30","Maltese","malt1254","Afroasiatic, Semitic",1,35.8884,14.4508,0.8,1.6,"Maltese","Maltese",0.5,1.5,"y","n","n","y"
+"31","Malagasy","mala1537","Austronesian, Basap-Greater Barito",1,-19.59,47.12,0.5,-0.8,"Malagasy","Malagasy",0.5,-0.8,"y","y","n","n"
+"32","Hoava","hoav1238","Austronesian, Western Oceanic linkage",1,-8.19679,157.595,0.8,1.55,"Hoava","Hoava",0.9,1.6,"n","y","n","n"
+"33","Papuan Malay","papu1250","Austronesian, Malayic",1,-2.53482,139.651,1.7,0.5,NA,"Papuan Malay",0.5,-0.8,"n","y","n",NA
+"34","Kwaio","kwai1243","Austronesian, Southeast Solomonic",1,-8.93744,160.965,-0.1,0.7,"Kwaio","Kwaio",-0.2,0.5,"y","y","n","unclear"
+"35","Maori","maor1246","Austronesian, Polynesian",1,-38.2881,176.541,0.5,-0.8,"Maori","Maori",0.5,-0.7,"y","y","n","y"
+"36","Tuvaluan","tuva1244","Austronesian, Polynesian",1,-8.520813,179.198088,0.6,-0.9,"Tuvaluan","Tuvaluan",0.6,-0.7,"y","y","n","y"
+"37","Ndyuka","ndyu1242","Creole, English-based",1,4.3126,-54.6419,0.5,-0.8,"Ndyuka","Ndyuka",0.5,-0.7,"n","y","n","n"
+"38","Nigerian Pidgin","nige1257","Creole, English-based",1,9.65873,4.21068,0.8,1.7,"Nig.Pidg.","Nig.Pidg.",0.7,1.6,"y","y","n","n"
+"39","Kristang","mala1533","Creole, Portuguese-based",1,2.188087,102.262059,0.5,-0.7,"Kristang","Kristang",0.5,1.7,"n","y","n",NA
+"40","Tamil","tami1289","Dravidian",1,10.520219,78.825989,-0.15,0.4,"Tamil","Tamil",0,-0.7,"n","y","n",NA
+"41","Kannada","nucl1305","Dravidian",1,13.5878,76.1198,1.2,0.4,"Kannada","Kannada",1.1,0.4,"n","y","n",NA
+"42","Malayalam","mala1464","Dravidian",1,9.59208,76.7651,1.1,0.8,"Malayalam","Malayalam",1.1,0.8,"n","y","n",NA
+"43","West Greenlandic (Inuktitut)","kala1399","Eskimo-Aleut",1,69.3761,-52.864,0.5,1.6,"Kalaallisut","Kalaallisut",0.5,1.6,"n","y","y",NA
+"44","Welsh","wels1247","IE, Celtic",1,52,-4,1.2,0.5,"Welsh","Welsh",1.2,0.5,"y","n","n","n"
+"45","Danish","dani1285","IE, Germanic",1,54.8655,9.36284,0.5,-0.8,"Danish","Danish",0.5,-0.7,"y","y","y","n"
+"46","Icelandic","icel1247","IE, Germanic",1,63.4837,-19.0212,0.5,-0.8,"Icelandic","Icelandic",0.5,-0.7,"y","y","y","n"
+"47","Norwegian","norw1258","IE, Germanic",1,61,8,0.5,-0.8,"Norwegian","Norwegian",0.7,-0.7,"y","y","y","y"
+"48","Swedish","swed1254","IE, Germanic",1,59.800634,17.389526,-0.15,0.3,"Swedish","Swedish",-0.1,0.3,"y","y","y","n"
+"49","Dutch","dutc1256","IE, Germanic",1,52,5,0.6,1.7,"Dutch","Dut",0.5,-0.5,"y","n","n","n"
+"50","English","stan1293","IE, Germanic",1,53,-1,0.6,-0.8,"Eng","Eng",0.6,-0.7,"y","n","n","n"
+"51","German","stan1295","IE, Germanic",1,52,10,0.3,-0.8,"Ger","Ger",0.5,1.6,"y","n","n","n"
+"52","Calabrian Greek","aspr1238","IE, Hellenic",1,38.0166,15.88621,-0.2,0.6,"19","19",-0.2,0.6,"y","y","y","y"
+"53","Greek","mode1248","IE, Hellenic",1,38.36,23.13,0.1,1.6,"Greek","20",0.1,1.6,"y","y","y","y"
+"54","Kashmiri","kash1277","IE, Indo-Aryan",1,34.166825,74.330455,0.5,-0.8,"Kashmiri","Kashmiri",0.5,-0.7,"n","y","y",NA
+"55","Marathi","mara1378","IE, Indo-Aryan",1,17.9344,76.6665,0.5,-0.8,"Marathi","Marathi",0.5,-0.7,"n","y","y",NA
+"56","Punjabi","west2386","IE, Indo-Aryan",1,30.0948,75.3474,-0.2,0.5,"Punjabi","Punjabi",-0.2,-0.7,"n","y","y",NA
+"57","Persian","west2369","IE, Indo-Iranian",1,32.9,53.3,-0.2,0.7,"Persian","Persian",-0.1,0.7,"n","y","y",NA
+"58","Rumanian","roma1327","IE, Romance",1,46.3913,24.2256,-0.1,0,"Romanian","Romanian",-0.1,0.2,"y","y","n","y"
+"59","Galician","gali1258","IE, Romance",1,42.2446,-7.5343,1.1,0,"Galician","Galician",1.1,0,"y","n","n","y"
+"60","Spanish","stan1288","IE, Romance",1,40.4414,-1.11788,0.5,1.6,"Spanish","23",0.5,1.6,"y","n","n","y"
+"61","Italian","ital1282","IE, Romance",1,43.0464,12.6489,1.15,0.1,"Italian","24",0.5,-0.7,"y","n","n","n"
+"62","Southern Calabrian","sout2616","IE, Romance",1,37.56,15.55,-0.2,0.7,"S Calab","26",1.3,0.4,"y","n","n","n"
+"63","Northern Calabrian","nort2612","IE, Romance",1,39.45,15.55,-0.1,0,"N Calab","25",1.3,0.2,"y","n","n","n"
+"64","Russian","russ1263","IE, Slavic",1,59,50,0.5,-0.8,"Russian","Russian",0.5,-0.7,"n","n","n",NA
+"65","Bulgarian","bulg1262","IE, Slavic",1,43.3646,25.047,-0.2,0.2,"Bulg","27",1.2,0,"y","n","n","y"
+"66","Polish","poli1260","IE, Slavic",1,51.8439,18.6255,-0.2,0.4,"Polish","Polish",0.5,-0.7,"n","n","n",NA
+"67","Babungo","veng1238","Niger-Congo, Grassfields Bantu",1,6.11403,10.4137,0.1,1.7,"Babungo","Babungo",0.3,1.6,"n","y","n",NA
+"68","Koromfe","koro1298","Niger-Congo, Gur",1,14.046,-1.96187,0.7,-0.7,"Koromfe","Koromfe",0.5,-0.7,"y","y","n","y"
+"69","Supyire","supy1237","Niger-Congo, Senufo",1,11.632,-5.87709,1.2,0.5,"Supyire","Supyire",1.1,0.5,"y","y","y","y"
+"70","Lezgian","lezg1247","North East Caucasian",1,41.5157,47.8951,0,1.5,"Lezgian","Lezgian",0,1.5,"n","y","y",NA
+"71","Abkhaz","abkh1244","North West Caucasian",1,43.056218,41.159115,-0.2,0,"Abkhaz","Abkhaz",-0.1,0.1,"y","y","n","y"
+"72","Mandarin","mand1415","Sino-Tibetan, Sinitic",1,40.0209,116.228,1.15,0.5,"Mandarin","Mandarin",0.5,-0.7,"n","y","n",NA
+"73","Hungarian","hung1274","Uralic, Ugric",1,46.9068585714,19.6555271429,1.15,-0.1,"Hung","Hungarian",0.5,-0.7,"y","n","n","n"
+"74","Finnish","finn1318","Uralic, Finnic",1,64.7628,25.5577,0.5,1.6,"Finnish","Finnish",0.5,-0.7,"n","y","n",NA
+"75","Arop-Lokep","arop1243","Austronesian, Western Oceanic linkage",1,-5.31671,147.103,NA,NA,NA,"Arop-Lokep",-0.1,0.5,"n","y","n",NA
+"76","Urim","urim1252","Torricelli",1,-3.58018,142.653,NA,NA,NA,"Urim",-0.2,0,"n","y","n",NA
+"77","East Geshiza","gesh1238","Sino-Tibetan, Burmo-Qiangic",1,31.1026,101.72,0.5,1.6,"E.Geshiza","E.Geshiza",NA,NA,"n","y","n",NA
+"78","Loniu","loni1238","Austronesian, Admiralty Islands",1,-2.06124,147.35,NA,NA,NA,"Loniu",0.5,-0.7,"n","y","n",NA
+"79","Maybrat","maib1239","Maybrat-Karon",1,-1.3679,132.591,NA,NA,NA,"Maybrat",0.2,-0.75,"n","y","n",NA
+"80","Menya","meny1245","Angan",1,-7.17425,146.071,NA,NA,NA,"Menya",0,1.5,"n","y","n",NA
+"81","Moskona","mosk1236","East Bird’s Head, Meax",1,-1.62201,133.145,0.9,-0.6,NA,"Moskona",-0.15,0.3,"n","y","n",NA
+"82","Kokota","koko1269","Austronesian, Western Oceanic linkage",1,-8.16481,159.191,0.3,-0.6,"Kokota","Kokota",0.5,-0.75,"y","y","n","y"
