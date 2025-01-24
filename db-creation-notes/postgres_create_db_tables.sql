@@ -26,12 +26,10 @@ CREATE TABLE public.languages (
 
 --- Table of nominal person-related source references
 CREATE TABLE public.datasources (
-	language_ID smallint not NULL,
+	language_id smallint not NULL,
 	ref_short text,
-	ref_bibtex text,
 	ref_pages text,
-	notes text,
-	CONSTRAINT datasources_languages_FK FOREIGN KEY (language_ID) REFERENCES languages(language_ID) ON DELETE CASCADE
+	CONSTRAINT datasources_languages_FK FOREIGN KEY (language_id) REFERENCES languages(language_id) ON DELETE CASCADE
 );
 
 --- core syntactic properties related to language_id as foreign key (allows easier remodelling of languages_dim to encode genetic relationships in more elaborate way if need arises)
@@ -50,8 +48,8 @@ CREATE TABLE public.core_properties (
 	article_distinct_third bool NULL,
 	demonstrative_as_third bool NULL,
 	nominal_person bool NULL,
-	apc_direction varchar NULL,
-	bound_person_direction varchar NULL,
+	apc_order varchar NULL,
+	bound_person_order varchar NULL,
 	person_allowed varchar NULL,
 	person_third_available varchar NULL,
 	number_allowed varchar NULL,
