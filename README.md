@@ -5,11 +5,11 @@ This repository contains a database with syntactic data on >100 languages with a
 More detailed information on relevant phenomena and the range of cross-linguistic variation can be found in [Höhn (2020)](https://doi.org/10.5334/gjgl.1121) and [Höhn (2024)](https://doi.org/10.1515/lingty-2023-0080) as well as [my dissertation](https://ling.auf.net/lingbuzz/003618). If you use this data, I'd appreciate it if you'd let me know. It's not a strict requirement, but I'm curious. If you are a linguist interested in (ad)nominal person and struggle with using this database, feel free to get in touch.
 
 
-# Content
+# Content of repository
 
 - root level:
-  - persn_db.sqlite
-  - persn_postgresql_dump.sql
+  - persn\_db.sqlite
+  - persn\_postgresql\_dump.sql
   - requirements.txt *for python scripts*
 - [db-creation-notes/](db-creation-notes): folder documenting the process of creating the database from the original master .ods file
 - [2020-Glossa/](2020-Glossa): folder containing a csv file and R script from a [2020 Glossa article](https://doi.org/10.5334/gjgl.1121) on person restrictions in nominal person, based on a subset of the data in the main database
@@ -84,10 +84,16 @@ I might add some more examples for using the database later, for now the sole su
 
 ![Database diagram](assets/persn-diagram.png "An illustration of the database relations")
 
-The languages and core\_properties tables have a one-to-one mapping, but are separated on conceptual grounds. The table languages contains non-structural properties of languoids, while core\_properties contains structural/(morpho-)syntactic properties relevant to the topic of the database. 
+The languages and core\_properties tables effectively have a one-to-one mapping on the key *language\_id*, but are separated on conceptual grounds. The table languages contains non-structural properties of languoids, while core\_properties contains structural/(morpho-)syntactic properties relevant to the topic of the database. 
 
 
 ### Table *languages*
+
+This table lists general, non-structural properties of languages/languoids. 
+
+I am partial to the term *languoid* employed by [Glottolog](https://glottolog.org/glottolog/glottologinformation) to avoid the issue of "language" vs "dialect", but due to its wider familiarity in the descriptions below I mostly use the term language on this wider understanding. Note that the database does not contain information on family- or genus-level entities (although they are also languoids in the Glottolog sense and could technically be included). 
+
+### Columns
 
 language\_id *private key* 
 : unique internal identifier
@@ -133,11 +139,18 @@ family\_genus
 
 ### Table *core\_properties*
 
+This table lists (morpho-)syntactic properties of languoids. 
+
+
+### Notes
+
 1. Many of the basic word order properties are adapted from WALS with some minor deviations. WALS does not provide data for the full set of languages. For transparency, the \*\_wals columns provide the data supplied by WALS.
 
 2. When working with the data, be aware that there are gaps in all contentful columns due to insufficient available data. Subset the data as necessary for your analytical purposes.
 
 3. Currently, the columns intended to be boolean represent True by "y" and False by "n" in the sqlite version. This may be normalised down the road.
+
+### Columns
 
 id **private key*
 : unique identifier 
@@ -233,6 +246,49 @@ ppdc
   due to difficult ascertainment of data, negative value is not currently systematically marked  
   (some entries contain references, to be cleaned up later)
   value: y (PPDC attested), n (sufficient indications that PPDCs are not available)
+  
+  
+*There are a few further syntactic properties that I hope to add in the next version.*
+
+## Table *article\_properties*
+
+This table contains information on articles in languages that have them. Coding this as a separate table avoids a proliferation of NULL values in the core\_properties table for the numerous languages without articles.
+
+
+### Columns
+
+language\_id
+: foreign key referencing language\_id in **languages** table
+
+article\_order
+: relative order of definite article and head noun  
+  values: ArtN, NArt
+  
+demonstrative\_w\_article
+: marks if demonstrative modifiers co-occur with definite articles  
+  conceptually this should have boolean values True or False (y/n), but I have practicaly not used this column much and it currently contains brief comments on many rows
+  
+nominal\_person\_w\_article
+: marks if nominal person expressions can contain a definite article  
+  values: y(es), n(o), unclear
+  
+
+# Table *data\_sources*
+
+This table contains literature references for information on (ad)nominal person for specific languages. Currently, this only contains short author-year references. This might be expanded to contain full bibtex-style references if required.
+
+### Columns
+
+language\_id
+: foreign key referencing language\_id in **languages** table
+
+ref\_short
+: a short author-year-style reference
+
+ref\_page
+: if relevant, more specific chapter, section or page information
+
+
 
 # Major changes
 
