@@ -295,6 +295,10 @@ ref\_page
 This section notes any significant changes to the content or organisation of the database.
 
 
+# Acknowledgements
+
+Part of the data reported here was collected while working in a project funded through the European Research Council Advanced Grant No. 269752 “Rethinking Comparative Syntax” (PI Ian Roberts).
+
 # License
 
 Note that the datasets and scripts in the [2020-Glossa](2020-Glossa) and [2024-LT](2024-LT) folders were published as part of the supplementary material to the respective articles (see above)
