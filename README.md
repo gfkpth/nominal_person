@@ -11,7 +11,7 @@ More detailed information on relevant phenomena and the range of cross-linguisti
   - persn\_db.sqlite
   - persn\_postgresql\_dump.sql
   - requirements.txt *for python scripts*
-- [db-creation-notes/](db-creation-notes): folder documenting the process of creating the database from the original master .ods file
+- [db-creation-notes/](db-creation-notes): folder documenting the process of creating the database from the original master .ods file as well as extraction of examples from a LaTeX file
 - [2020-Glossa/](2020-Glossa): folder containing a csv file and R script from a [2020 Glossa article](https://doi.org/10.5334/gjgl.1121) on person restrictions in nominal person, based on a subset of the data in the main database
 - [2024-LT/](2024-LT): folder containing a csv file and R script from a [2024 Linguistic Typology article](https://doi.org/10.1515/lingty-2023-0080) on word order correlations in nominal person, based on a (larger) subset of the data represented in the main database
 
@@ -24,7 +24,16 @@ While a plain CSV/ODS table has been a sufficient -- and probably the most pract
 
 1. Making available my complete dataset on the phenomena. The datasets used in my *Glossa* and *Linguistic Typolog* papers address different aspects of nominal person, so they do not provide a full overview. Moreover, my master ODS file is not very tidy (containing extraneous notes, unused columns, extra columns for lookups of from other lists etc.). I have been thinking about an effective way of making a more comprehensive and tidier dataset publicly available, while also allowing scope for possible future extensions (or additional uses).
 
-2. It provides an opportunity for me to practice database design with SQL and data manipulation with python using a familiar dataset.
+2. It provides an opportunity for exercising database design with SQL and data manipulation with python using a familiar dataset.
+
+
+# Data preparation
+
+The folder [db-creation-notes/](db-creation-notes) contains jupyter notebooks and notes on the data transformation process.
+
+The SQL folder documents the process of converting the data from a plain csv file into sqlite/postgresql databases.
+
+The CLDF folder documents the process of preparing the complete dataset in the [CLDF](https://github.com/cldf/cldf/), a format designed for linguistic applications. This folder also contains [a notebook](db_creation_notes/CLDF/clld_preparation.ipynb) detailing the semi-automatic extraction process of examples of the linguistic phenomenon from a LaTeX file into a csv file ([examples.csv](db_creation_notes/CLDF/examples.csv)). The example dataset has not been included in the SQL database(s) at this point. This is planned once the CLDF is completed.
 
 
 # Format
@@ -293,6 +302,10 @@ ref\_page
 # Major changes
 
 This section notes any significant changes to the content or organisation of the database.
+
+## 2025-03-16
+
+Uploaded intermediate state of bring-up of CLDF version of the database. The CLDF version is incomplete, but there is now a csv with examples of adnominal person from various languages (examples.csv), semi-automatically extracted from supplementary material to Höhn (2024).
 
 
 # Acknowledgements
