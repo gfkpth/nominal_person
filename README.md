@@ -2,7 +2,9 @@
 
 This repository contains a database with syntactic data on >100 languages with a focus on properties relating to the phenomenon of (ad)nominal person. One common form of nominal person are personal pronouns forming co-constituents of a co-referring nominal expression as in English *we linguists*.
 
-More detailed information on relevant phenomena and the range of cross-linguistic variation can be found in [Höhn (2020)](https://doi.org/10.5334/gjgl.1121) and [Höhn (2024)](https://doi.org/10.1515/lingty-2023-0080) as well as [my dissertation](https://ling.auf.net/lingbuzz/003618). If you use this data, I'd appreciate it if you'd let me know. It's not a strict requirement, but I'm curious. If you are a linguist interested in (ad)nominal person and struggle with using this database, feel free to get in touch.
+More detailed information on relevant phenomena and the range of cross-linguistic variation can be found in [Höhn (2020)](https://doi.org/10.5334/gjgl.1121) and [Höhn (2024)](https://doi.org/10.1515/lingty-2023-0080) as well as [my dissertation](https://ling.auf.net/lingbuzz/003618). If you use this data, I'd appreciate it if you'd let me know. If you are a linguist interested in (ad)nominal person and struggle with using this database, feel free to get in touch.
+
+Note that this is currently work in progress. I am currently planning to reconceptualise the database in [CLDF](https://github.com/cldf/cldf/), a format designed for linguistic applications which will be compatible with generation of an sqlite database as well. I will publish a new repository for that once there is a usable version.
 
 
 # Content of repository
@@ -10,7 +12,7 @@ More detailed information on relevant phenomena and the range of cross-linguisti
 - root level:
   - persn\_db.sqlite
   - persn\_postgresql\_dump.sql
-  - requirements.txt *for python scripts*
+  - requirements.txt *for python scripts/notebooks*
 - [db-creation-notes/](db-creation-notes): folder documenting the process of creating the database from the original master .ods file as well as extraction of examples from a LaTeX file
 - [2020-Glossa/](2020-Glossa): folder containing a csv file and R script from a [2020 Glossa article](https://doi.org/10.5334/gjgl.1121) on person restrictions in nominal person, based on a subset of the data in the main database
 - [2024-LT/](2024-LT): folder containing a csv file and R script from a [2024 Linguistic Typology article](https://doi.org/10.1515/lingty-2023-0080) on word order correlations in nominal person, based on a (larger) subset of the data represented in the main database
@@ -33,7 +35,7 @@ The folder [db-creation-notes/](db-creation-notes) contains jupyter notebooks an
 
 The SQL folder documents the process of converting the data from a plain csv file into sqlite/postgresql databases.
 
-The CLDF folder documents the process of preparing the complete dataset in the [CLDF](https://github.com/cldf/cldf/), a format designed for linguistic applications. This folder also contains [a notebook](db_creation_notes/CLDF/clld_preparation.ipynb) detailing the semi-automatic extraction process of examples of the linguistic phenomenon from a LaTeX file into a csv file ([examples.csv](db_creation_notes/CLDF/examples.csv)). The example dataset has not been included in the SQL database(s) at this point. This is planned once the CLDF is completed.
+The CLDF folder contains [a notebook](db_creation_notes/CLDF/clld_preparation.ipynb) detailing the semi-automatic extraction process of examples of the linguistic phenomenon from a LaTeX file into a csv file ([examples.csv](db_creation_notes/CLDF/examples.csv)). The example dataset has not been included in the SQL database(s), but will be available in the CLDF-version once it becomes available (soon-ish).
 
 
 # Format

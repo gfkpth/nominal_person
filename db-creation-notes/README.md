@@ -1,6 +1,6 @@
 # Introduction
 
-This readme documents the creation process of the main database
+This folder contains the scripts and raw data used to 
 
 # Notes
 

@@ -2,3 +2,4 @@
 grammarchecks.csv
 .env
 nominal_person.code-workspace
+.~lock*
