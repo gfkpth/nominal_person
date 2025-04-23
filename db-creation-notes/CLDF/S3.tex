@@ -1,3 +1,1113 @@
+%TC:group comment 0 0
+
+\documentclass[A4paper]{article}
+
+
+\usepackage[T2A,T1]{fontenc}
+\usepackage[utf8]{inputenc}%(only for the pdftex engine)
+\usepackage[russian,greek,english]{babel}
+%\RequirePackage[no-math]{fontspec}[2017/03/31]%(only for the luatex or the xetex engine)
+\let\OGtableofcontents\tableofcontents
+\usepackage[small]{dgruyter}
+\usepackage{microtype}
+
+
+\usepackage{textalpha}	% enable Greek letters
+%\usepackage[doublespacing]{setspace}
+
+%%% Bibliography
+
+%\usepackage[round]{natbib}
+\usepackage[round, sort, numbers, authoryear]{natbib}
+%\usepackage[backend=biber, style=authoryear, citestyle=alphabetic, sorting=nty, natbib=true]{biblatex}
+\setcitestyle{aysep={},notesep={: }}
+
+%\bibliography{/home/georg/academia/BibTeXreferences/literature}
+
+%%%%%%%
+%% FONT (possibly to be adapted)
+\usepackage{libertinus}
+
+%%%
+\usepackage{comment}
+
+\usepackage{bbding}	% ticks and crosses (symbols)
+
+\usepackage{combelow}	% for Romanian comma below
+
+%longtable 
+\usepackage{longtable}
+%\usepackage{supertabular}
+\usepackage{booktabs}
+\usepackage[labelsep=colon,tableposition=top,justification=raggedright,labelfont=bf,format=hang]{caption}
+\usepackage{subcaption}
+
+ \usepackage{vwcol}
+
+\usepackage{pdflscape}
+
+
+
+
+%% fix @tablefont
+\makeatletter
+\def\@tablefont{\normalfont}
+\makeatother
+
+
+% *** Trees
+\usepackage{tikz}
+%\usepgflibrary{arrows,shapes.misc,shadows}
+\usetikzlibrary{arrows,shapes.misc,shadows,shapes.multipart}
+\usepackage{tikz-qtree}
+\usepackage{tikz-qtree-compat}
+\tikzset{every tree node/.style={align=center, anchor=north}}	% allows multiple lines in tree node (as side effect, cf. handbook)
+
+
+% *** Examples
+\usepackage{expex}
+\lingset{aboveglftskip=0cm, exskip=1.3ex plus .3ex minus .3ex}	% don't italicise first line of examples
+
+
+
+\usepackage{leipzig}	% acronym
+\makeglossaries
+%%%%%%%%%%%%%%%%%%
+% Self-defined macros
+%%%%%%%%%%%%%%%%%%
+
+\newcommand{\citeapos}[1]{\citeauthor{#1}'s (\citeyear{#1})} %for genetive 's
+\newcommand{\citeapospage}[2]{\citeauthor{#2}'s (\citeyear{#2}, #1)} %for genetive 's
+\newcommand{\unt}[1]{\hbox{}$_\text{#1}$}
+
+
+%%%%%%%%%%%%%%%%%%%%
+%% Abbreviations
+%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\cn}{n}	
+\newcommand{\cv}{v}	
+\newcommand{\png}{\textsc{png}}	% person-number-gender
+
+\newcommand{\auth}{\text{auth}}
+\newcommand{\participant}{\text{part}}
+
+\newcommand{\demft}{\text{dem}}
+\newcommand{\defft}{\text{def}}
+
+\newcommand{\commongend}{\text{cg}}	% common gender
+
+\newcommand{\person}{\text{person:}}
+\newcommand{\numb}{\text{number:}}
+\newcommand{\gend}{\text{gender:}}
+\newcommand{\case}{\text{case:}}
+
+\newacronym[sort=pers]{persn}{\textsc{pers\unt{n}}}{adnominal person}
+\newacronym[plural={APCs}, sort=apc]{apc}{APC}{adnominal pronoun construction}
+\newacronym[plural={BPCs},longplural={bound person constructions}, sort=bpc]{bpc}{BPC}{bound person construction}
+\newacronym[sort=xnp]{xnp}{\textnormal{\emph{x}nP}}{extended nominal projection}
+\newacronym[sort=png]{png}{\textsc{png}}{person-number-gender}
+\newacronym[plural={PoVs}, longplural={points of variation}, sort=pov]{pov}{PoV}{point of variation}
+\newacronym{aic}{AIC}{Akike information criterion}
+\newacronym{ppdc}{PPDC}{personal pronoun-demonstrative construction}
+
+\newacronym{tng}{TNG}{Trans-New Guinea}
+%\newacronym{tap}{TAP}{Timor-Alor-Pantar}
+\newacronym{pn}{PN}{Pama-Nyungan}
+\newacronym{ie}{IE}{Indo-European}
+
+%\glsunset{tng}
+%\glsunset{tap}
+%\glsunset{pn}
+%\glsunset{ie}
+%%%%%%%%%%%%%%%%%%%%%%%
+% Glosses
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newleipzig{auth}{auth}{author}
+\newleipzig{part}{part}{participant}
+
+\newleipzig{lig}{lig}{ligature}			% Bilua
+\newleipzig{pros}{pros}{prospective marker}	% Bilua
+\newleipzig{sit}{sit}{situation-change marker}	% Bilua
+\newleipzig{plz}{plz}{personaliser}	% Gorokan languages
+
+\newleipzig{prtcl}{prtcl}{particle}	% 
+
+\newleipzig{inc}{inc}{inceptive}	
+\newleipzig{trn}{trn}{transitivising suffix}
+\newleipzig{spec}{spec}{specific}
+\newleipzig{lda}{lda}{locative-directional-ablative}
+\newleipzig{proxart}{prxart}{proximate article}		% Basque
+\newleipzig{todpst}{todpst}{today's past}		% 
+\newleipzig{anaph}{anaph}{anaphoric pronoun}
+\newleipzig{rep}{rep}{reported speech particle}
+\newleipzig{merg}{merg}{merged}
+\newleipzig{inch}{inch}{inchoative}
+\newleipzig{ant}{ant}{anterior}
+\newleipzig{emph}{emph}{emphatic}
+\newleipzig{cf}{cf}{counterfactual}
+\newleipzig{addr}{addr}{addressee}
+\newleipzig{common}{cg}{common gender}
+\newleipzig{compel}{compel}{compellative}
+\newleipzig{recpst}{recpst}{recent past}
+\newleipzig{lnk}{lnk}{adnominal linker}
+\newleipzig{ds}{ds}{different subject}
+\newleipzig{ss}{ss}{same subject}
+\newleipzig{pref}{pref}{prefix}	% East Geshiza
+\newleipzig{nact}{nact}{non-actual}	% East Geshiza
+\newleipzig{ass}{ass}{assertive}	% Menya
+\newleipzig{dso}{dso}{dissociative}
+\newleipzig{gvn}{gvn}{given}
+\newleipzig{cert}{cert}{certainty of assertion}
+\newleipzig{hum}{hum}{human}
+\newleipzig{tri}{tri}{trial/paucal}
+\newleipzig{fpron}{FPron}{focus pronoun}
+\newleipzig{spron}{SPron}{subject pronoun}
+\newleipzig{unmark}{u}{unmarked}
+\newleipzig{softmut}{softmut}{soft mutation}
+\newleipzig{contr}{contr}{contrastive}
+\newleipzig{redup}{redup}{reduplication}
+\newleipzig{fin}{fin}{clause-final verb}
+\newleipzig{nfin}{nfin}{non-final marker}
+\newleipzig{ag}{ag}{agent}
+\newleipzig{act}{act}{actor}
+\newleipzig{npst}{npst}{non-past}
+\newleipzig{mod}{mod}{modal discourse enclitic (East Geshiza)}
+\newleipzig{inv}{inv}{inverse}
+\newleipzig{cnt}{cnt}{continuous}  % Kokota, =durative?
+\newleipzig{nf}{nf}{non-feminine}
+\newleipzig{ncl}{ncl}{noun class marker}
+\newleipzig{tam}{tam}{tense aspect mood marker}
+\newleipzig{fv}{fv}{final vowel}
+\newleipzig{habit}{habit}{habitual}
+\newleipzig{cl}{cl}{clitic}
+\newleipzig{generic}{gener}{generic}
+\newleipzig{inan}{inan}{inanimate}
+\newleipzig{stvzr}{stvzr}{stativiser}
+\newleipzig{exclam}{exclam}{exclamation}
+\newleipzig{ill}{ill}{illative}
+\newleipzig{infl}{infl}{inflection}
+\newleipzig{real}{real}{realis}
+\newleipzig{postess}{postess}{postessive}
+\newleipzig{prev}{prev}{preverb}
+\newleipzig{nfut}{nfut}{non-future}
+\newleipzig{aor}{aor}{aorist}
+\newleipzig{char}{char}{characteristic}
+%\newleipzig{real}{real}{realis}
+
+
+
+\begin{comment}
+\newcommand{\lig}{\glossformat{lig}}		% ligature (Obata2003)
+\newcommand{\nonfem}{\glossformat{nonf}}	% non-feminine (Obata2003)
+\newcommand{\pros}{\glossformat{pros}}	% prospective marker (Obata2003)
+\newcommand{\situation}{\glossformat{sit}}		% situation-change marker (Obata2003)
+
+\newcommand{\piv}{\glossformat{piv}} 	% pivotal marker (Yagaria, Renck1975)
+\newcommand{\dln}{\glossformat{dln}}	% delineator (Fore, Scott 1978)
+\newcommand{\plz}{\glossformat{plz}}	% personaliser (Kamano, Payne&Drew 1970)
+
+\newcommand{\pers}{\glossformat{pers}}		% personal article
+\newcommand{\inc}{\glossformat{inc}}		% inceptive
+\newcommand{\trn}{\glossformat{trn}}		% transitivising suffix
+\newcommand{\spec}{\glossformat{spec}}		% specific
+\newcommand{\lda}{\glossformat{lda}}		% locative-directional-ablative
+\newcommand{\prof}{\glossformat{pro}} 		% pro-form (for oblique pro-form in Vaeakau)
+
+\newcommand{\real}{\glossformat{real}}		% realis (Schapper, TAP volume 2014)
+\newcommand{\nfin}{\glossformat{nfin}}		% non-final (Kratichvil, TAP volume 2014)
+
+\newcommand{\prev}{\glossformat{prev}}		% preverb in Abkhaz (Hewitt 1989)
+\newcommand{\hum}{\glossformat{hum}}		% human in Abkhaz (Hewitt 1989), also Koromfe (Rennison 1997)
+
+\newcommand{\longdet}{\glossformat{long.det}}	% long determiner (Koromfe, Rennison 1997)
+\newcommand{\postpos}{\glossformat{postpos}}	% postposition (Koromfe, Rennison 1997)
+\newcommand{\deict}{\glossformat{deict}}	% deictic (Koromfe, Rennison 1997), but also Keesing
+\newcommand{\disjpron}{\glossformat{disjp}}	% disjunctive pronoun (Koromfe, Rennison 1997)
+
+
+\newcommand{\plu}{\glossformat{plu}}	% plural article in Kwaio, Keesing
+
+\newcommand{\indefobj}{\glossformat{indef.obj}}	% indefinite object conjugation Hungarian
+
+\newcommand{\cf}{\glossformat{cf}}		% counterfactual
+\newcommand{\emphat}{\glossformat{emph}}	% emphatic
+\newcommand{\tod}{\glossformat{tod}}		% today's (past)
+
+\newcommand{\nonpst}{\glossformat{npst}}		% non-past (e.g. Warlpiri)
+
+\newcommand{\incompl}{\glossformat{incompl}}	%incompletive aspect (-C) in Nigerian Pidgin (Faraclas 1996)
+
+\newcommand{\ant}{\glossformat{ant}}	% anterior (Pitjantjatjara)
+\newcommand{\merg}{\glossformat{merg}}	% merged (Pitjantjatjara)
+\newcommand{\cont}{\glossformat{cont}}	% merged (Pitjantjatjara)
+\newcommand{\anaph}{\glossformat{anaph}}	% anaphoric (Pitjantjatjara)
+\newcommand{\inch}{\glossformat{inch}}	% inchoative
+\newcommand{\rep}{\glossformat{rep}}	% reported speech particle (Pitjantjatjara)
+
+\newcommand{\pls}{\glossformat{pls}}	% plural subject agreement (Kuku Yalanji)
+
+\newcommand{\FM}{FM}	% father's mother (Kuku Yalanji, Patz 2002)
+
+\newcommand{\g}{\glossformat{g}}	% gender class 1 (Supyire, Carlsson 1994)
+
+\newcommand{\fpst}{\glossformat{fpast}} % far past (Usan, Reesink 1987)
+
+\newcommand{\tam}{\glossformat{tam}}	% Tense Aspect Marker
+\newcommand{\conj}{\glossformat{conj}}	%conjunction
+
+\newcommand{\proxart}{\glossformat{proxart}}	% proximate article in Basque
+\newcommand{\cl}{\glossformat{cl}}		% clitic in greek
+
+\newcommand{\lnk}{\glossformat{lnk}}		% (adnominal) linker morphemes
+
+\newcommand{\supl}{\glossformat{supl}}		% superlative
+
+\newcommand{\efoc}{\glossformat{efoc}}		% EFOC - focus marker from \emph{heo} paradigm (Lavukaleve)
+\newcommand{\psnv}{\glossformat{psnv}}		% PSNV - presentative (verb suffix) (Lavukaleve)
+\newcommand{\pn}{\glossformat{pn}}		% PN - demonstrative pronoun (from \emph{foia} paradigm) (Lavukaleve)
+\newcommand{\ntrldist}{\glossformat{ntrl}}		% NTRL - demonstrative pronoun (from \emph{foia} paradigm) (Lavukaleve)
+\newcommand{\moddem}{\glossformat{mod}}		% demonstrative modifier from \emph{hoia} paradigm (Lavukaleve)
+\newcommand{\succsv}{\glossformat{succ}}		% successive verb suffix (Lavukaleve)
+\newcommand{\purpsv}{\glossformat{purp}}		% purposive verb suffix (Lavukaleve)
+
+\newcommand{\dynam}{\glossformat{dynam}}	% dynamic (Abkhaz, George Hewitt p.c.)
+
+\newcommand{\habit}{\glossformat{habit}}	% habitual (Kobon)
+
+\newcommand{\common}{\glossformat{c}}		% common gender (e.g. Khoekhoe)
+\newcommand{\compellative}{\glossformat{compel}}		% compellative (e.g. Khoekhoe)
+\newcommand{\recpst}{\glossformat{recpst}}	% recent past (e.g. Khoekhoe)
+\newcommand{\authgloss}{\glossformat{auth}}	% author (Khoekhoe article)
+\newcommand{\addrgloss}{\glossformat{addr}}	% addressee (Khoekhoe article)
+
+\newcommand{\infl}{\glossformat{infl}}	%inflection (Wari')
+\newcommand{\rpp}{\glossformat{rp/p}}	% realis past/present (Wari')
+
+\newcommand{\pco}{\glossformat{pco}}	% perfective converb (Kambaata, Treis 2008)
+
+\newcommand{\src}{\glossformat{src}}	% source (Imonda, Seiler 1985)
+
+\newcommand{\softmut}{\glossformat{sm}}		% soft mutation (Welsh)
+
+
+\newcommand{\aorist}{\glossformat{aor}}		% aorist (e.g. Georgian)
+\newcommand{\pv}{\glossformat{prev}}		% preverb (Georgian)
+
+\newcommand{\ncl}{$^{\glossformat{ncl}}$} % noun class (Bantu)
+\end{comment}
+
+
+
+
+\begin{document}
+
+  \articletype{}
+
+%  \author*[1]{...}
+%  \author[2]{...}
+  \author[1]{Georg F.K. Höhn} 
+  \runningauthor{G.F.K. Höhn}
+  \affil[1]{Georg-August-University Göttingen}
+%  \affil[2]{...} 
+  \title{A word order typology\\of adnominal person}
+  \runningtitle{Typology of adnominal person}
+  \subtitle{Supplementary Material S3}
+%  \abstract{This paper investigates crosslinguistic variation in the expression of nominal person in expressions like English ``we linguists'' based on a survey of 114 languages, focusing on word order. Two general subtypes are distinguished according to whether nominal person is expressed by an independent pronoun as in English or by a morphologically dependent marker. Prenominal adnominal pronouns are the most common type of adnominal person marking overall, while the morphologically dependent markers are predominantly postnominal (or phrase-final). The order of nominal person marking relative to its accompanying noun is shown to interact with indicators of head-directionality (dependent genitives, VO/OV-order, adposition directionality) and with the directionality of demonstrative modifiers (prenominal/postnominal) using mixed linear models. Possible theoretical implications are discussed concerning variation in the encoding of nominal person as head or phrasal modifier and its co-categoriality with demonstratives. \\
+% TC:ignore
+% TC:endignore
+
+%  \keywords{adnominal pronoun constructions, pronominal determiners, nominal person, headedness, demonstratives}
+%  \classification[PACS]{...}
+%  \communicated{...}
+%  \dedication{...}
+%  \received{...}
+%  \accepted{...}
+  \journalname{Linguistic Typology}
+%  \journalyear{}
+%  \journalvolume{}
+%  \journalissue{}
+  \startpage{1}
+%  \aop
+%  \DOI{...}
+
+\maketitle
+
+%TC:group comment 0 0
+
+%\OGtableofcontents
+
+%\tableofcontents
+
+ 
+% Acronyms: \printacronyms[style=inline]
+
+
+\section{Notes on postnominal and ambidirectional \glspl{apc} and \glspl{bpc}}
+
+Table~\ref{table:postAPC} lists languages with postnominal \glspl{apc} with their word order properties. Several examples were already presented in Section 2.3 of the main paper.  
+
+\begin{table}[htb!]
+\caption{Word order properties of languages with postnominal pronouns\label{table:postAPC}}
+\centering
+ \begin{tabular}{llllll}
+    \textbf{Language}  & \textbf{Classification}         & \textbf{Adpos.} & \textbf{Genit.} 	& \textbf{WO}	& \textbf{Demonstr.}   \\
+    \midrule
+  Warlpiri 	& Western \gls{pn}		& post 	& GenN 	& NC & NDem \\ 
+  Lavukaleve 	& Lavukaleve 			& post 	& GenN 	& OV & NDem \\ 
+  Maybrat 	& Maybrat 			& pre 	& NoDom & VO & NDem \\ 
+  Savosavo 	& Savosavo 			& post 	& GenN 	& OV & DemN \\ 
+%  Fore 		& \gls{tng}, Fore-Gimi 		& post 	& GenN 	& OV & DemN \\ 
+  Yagaria 	& \gls{tng}, Siane-Yagaria 	& post 	& GenN 	& OV & DemN \\ 
+  Amele 	& \gls{tng}, Mabuso 		& post 	& GenN 	& OV & NDem \\ 
+  Adang 	& \gls{tng}, Alor-Pantar 	& post 	& GenN 	& OV & NDem \\ 
+  Kaera 	& \gls{tng}, Alor-Pantar 	& post 	& GenN 	& OV & NDem \\ 
+  Kamang 	& \gls{tng}, Alor-Pantar 	& NoDom & GenN 	& OV & NDem \\ 
+  Sawila 	& \gls{tng}, Alor-Pantar 	& NoAdpos & GenN & OV & NDem \\ 
+  Wersing 	& \gls{tng}, Alor-Pantar 	& NoAdpos & GenN & OV & NDem \\ 
+  Western Pantar & \gls{tng}, Alor-Pantar 	& post 	& GenN 	& OV & NDem \\ 
+  Papuan Malay 	& Austron., Malayo-Sumbawan 	& pre 	& GenN 	& VO & NDem \\ 
+  Kalaallisut 	& Eskimo			& post 	& GenN 	& OV & mixed \\ 
+  East Geshiza 	& Sino-Tibetan, Burmo-Qiangic 	& post 	& GenN 	& OV & DemN \\ 
+
+    \end{tabular} 
+\end{table}
+
+\citet[257]{fortescue1984} presents Kalaallisut as having prenominal \glspl{apc} based on (\nextx b), which, however, involves a participial construction and is therefore presumably not ad-\emph{nominal}. I classify the language as having postnominal \gls{apc} on the basis of examples like (\nextx a) with a plain nominal. 
+
+\pex Kalaallisut
+\a
+\begingl
+\gla kalaalli-t \textbf{uagut}//
+\glb Greenlander-\Abs{}.\Pl{} we//
+\glft `we Greenlanders'\\{\citep[after][110; gloss extrapolated]{fortescue1984}}//
+\endgl
+\a
+\begingl
+\gla \textbf{uagut} kalaali-u-sugut//
+\glb we Greenlander-be-1\Pl{}.\Ptcp{}//
+\glft `we Greenlanders' \\{\citep[after][257]{fortescue1984}}//
+\endgl
+\xe
+
+%For Warlpiri, \citet[317]{hale1973} notes that ``noun phrases of the form /\ng{}arka \ng{}atju/ `I man', /yapa \ng{}atju/ `I person' [\ldots] are possible, albeit rare, in actual usage''.
+A postnominal \glspl{apc} from East Geshiza is illustrated in (\nextx). Apart from several postnominal \gls{apc} examples the grammar contains a single example of a prenominal \gls{apc} \citep[388, (5.74)]{honkasalo2019}, which incidentally also contains a numeral modifier. I still classify the language as having postnominal \glspl{apc}, since this is clearly the default option (Sami Honkasalo, pers. comm.) and the significance of the exceptional datapoint is currently unclear.
+ 
+\ex East Geshiza\\
+\begingl
+\gla {}[b\ae{} \textbf{\ng\ae{}=\textltailn{}ə}=t\super{h}ə] `mbəzli' d-ə-jo\ng{}.//
+\glb \phantom{[}Tibetan 1=\Pl{}=\Top{} ritual.tripod \Pref{}-\Nact{}-say.1//
+\glft `We Tibetans call it \emph{mbəzli} (ritual tripod).'\\
+\citep[400, 5.115]{honkasalo2019}\label{ex:geshizappdc}//
+\endgl
+\xe
+
+
+The status of ambidirectional \glspl{apc} is not entirely clear due to limited available information on the relevant constructions, but the seven languages in Table~\ref{table:ambiAPC} appear to allow both pre- and postnominal pronouns, with the available description or data providing no clear indication whether one of them behaves as a default. 
+
+\begin{table}[htb!]
+\centering
+\caption{Languages with ambidirectional \glspl{apc}\label{table:ambiAPC}}
+\begin{tabular}{llllll}
+\textbf{Language} & \textbf{Genus}      &  \textbf{Adpos.} & \textbf{Genit.} & \textbf{WO} & \textbf{Demonstr.}   \\
+  \midrule
+Pitjantjatjara 	& Western \gls{pn} 	& post 		& GenN 	& OV 		& NDem \\ 
+Guugu Yimidhirr & Northern \gls{pn} 	& unclear 	& NoDom & OV 		& DemN \\ 
+Kuku-Yalanji 	& Northern \gls{pn}	& pre 		& NoDom & OV 		& mixed \\ 
+Imonda 		& Border 		& post 		& GenN 	& OV 		& mixed \\ 
+Usan 		& North Adelbert 	& post 		& GenN 	& OV 		& NDem \\ 
+Kobon 		& \gls{tng}, Kalam-Kobon & post 	& GenN 	& OV 		& NDem \\ 
+Katu 		& Katuic 		& pre 		& NGen 	& unclear 	& NDem \\ 
+
+\end{tabular}
+\end{table}
+
+
+Katu is the only language in the sample with evidence of pre- and postnominal pronouns occurring simultaneously, cf.\ (\nextx c).\footnote{For other instances of double marking of \gls{persn} see Table~\ref{table:cliticPerson} below.} Unfortunately, \citet{costello1969} does not discuss what determines the choice between the options in (\nextx).
+
+\pex Katu
+\a \begingl
+\gla manuih \textbf{yi}//
+\glb people we//
+\endgl
+\a 
+\begingl
+\gla \textbf{yi} manuih//
+\glb we people//
+\glft `we people'//
+\endgl
+\a
+\begingl
+\gla \textbf{yi} adi anó \textbf{yi}//
+\glb we older.brother younger.brother we//
+\glft `we older and younger brothers'\\
+\citep[28, (35--37)]{costello1969}//
+\endgl
+\xe
+
+For some other languages, information structure might influence the choice between pre- or postnominal \glspl{apc}.
+For Kuku Yalanji, \citet[202]{patz2002} suggests %a connection to anaphoric versus new reference. 
+that prenominal pronouns ``can be assumed to have anaphoric or definite reference'', while postnominal pronouns ``normally [establish] a new reference''. 
+%In Pitjantjatjara, all \glspl{apc} provided in the grammar involve the third person singular pronoun \emph{palu\underline{r}u}.
+Referring to personal communication from Paul Eckhert, \citet[34]{bowe1990} suggests that prenominal (as opposed to the unmarked postnominal) demonstratives in Pitjantjatjara ``seem to imply contrast''. Considering the translation of (\ref{ex:pitjaAPCpre}), prenominal \emph{palu\underline{r}u} appears to have the same effect. While one might speculate that postnominal \glspl{apc} also represent the unmarked order, in the absence of explicit confirmation I classify Pitjantjatjara as having ambidirectional \glspl{apc} for now. %For the demonstratives, and by extension presumably the pronouns, Bowe argues that the postnominal ones 
+%Other pronouns can also be accompanied by \emph{palu\underline{r}u} (\anextx). Its singular number features seem to be neutralised in this case. 
+
+\pex Pitjantjatjara
+\a
+\begingl
+\gla {}[Minyma \textbf{palu\underline{r}u}] ngayu-nya nya-ngu//
+\glb \phantom{[}woman 3\Sg{}.\Nom{} 1\Sg{}.\Acc{} see-\Pst{}//
+\glft `The woman saw me.' \\{\citep[31, (110)]{bowe1990}}//
+\endgl
+\a \label{ex:pitjaAPCpre}
+\begingl
+\gla {}[\textbf{Palu\underline{r}u} wati nyara wa\underline{r}a-ngku] mutaka palya-nu//
+\glb \phantom{[}3\Sg{}.\Nom{} man \Dem.3 tall-\Erg{} car fix-\Pst{}//
+\glft `The tall man over there (in contrast to the other one) fixed the car.' \\{\citep[after][34, (114)]{bowe1990}}//
+\endgl
+\xe
+
+Finally, \citet[53f., 167]{reesink1987} describes \textsc{postnominal} \glspl{apc} in Usan (\nextx a) as indicative of contrastive topics, topic shift or emphasis on topics. However, prenominal \glspl{apc} are not specifically addressed in this grammar at all. Example (\nextx b) occurs as part of a discussion on sentence connectors and the second sentence picks up the object of the first clause as \gls{apc} subject with a prenominal \gls{apc}, suggesting compatibility with topic shift, too. The significance of \gls{apc} order in Usan thus remains unclear.  %Admittedly, it is not clear if the prenominal \gls{apc} in (\nextx b) could not also be construed as contrastive. 
+
+\pex Usan
+\a \begingl
+\gla eâb igim-ine ne [tain \textbf{wo}] yâ-nâmb wogub\ldots//
+\glb cry.\Ss{} be-1\Sg.\Ds{} and \phantom{[}father he me-hit.\Ss{} cease.\Ss{}//
+\glft `I was crying and my father he hit me and then\ldots' \\
+\citep[after][167, (99)]{reesink1987}//
+\endgl
+\a 
+\begingl
+\gla \ldots{} in bo [\textbf{an} wau moi] qomon gâs ende ig-oun. Ne [\textbf{an} munon moi e]\ldots//
+\glb {} we again \phantom{[}you.\Pl{} child unmarried custom like thus be-1\Pl.\Prs{} and \phantom{[}you.\Pl{} man unmarried \Dem.\Prox{}//
+\glft `\ldots we in turn live like the customs of you young men. And you young men here\ldots'\\
+\citep[initial part of][190f., (41)]{reesink1987}\label{ex:usanppdc}//
+\endgl
+\xe 
+
+%\ex
+%\begingl
+%\gla Ka kunyu panya \textbf{palu\underline{r}u} pula ngari-ra tjiri\underline{r}pi-ri-ngu//
+%\glb and \Rep{} \Anaph{} 3\Sg{}.\Nom{} 3\Du{}.\Nom{} lie-\Ant(\Merg) day-\Inch-\Pst{}//
+%\glft `And the two of them lay down until morning.' \\{\citep[48, (179)]{bowe1990}}//
+%\endgl
+%\nomenclature[G]{\inch}{inchoative}%
+%\nomenclature[G]{\ant}{anterior}%
+%\nomenclature[G]{\merg}{merged (Pitjantjatjara, \citealp{bowe1990})}%
+%\nomenclature[G]{\anaph}{anaphoric}%
+%\nomenclature[G]{\rep}{reported speech particle (Pitjantjatjara, \citealp{bowe1990})}
+%\xe
+
+
+Morphologically bound \gls{persn} marking is attested in the languages in Table~\ref{table:cliticPerson}. 
+Note that Bilua (\nextx) %\citep[6, 272]{obata2003} 
+and Windesi Wamesa (\anextx) are the only VO languages with postnominal \glspl{bpc}. VO order in Bilua probably results from contact with Austronesian languages \citep[323]{terrill2011solomoncontact}, see Figure~3 in the main paper. Being Austronesian, VO order is unsurprising for Windesi Wamesa, but it is the only Austronesian language in the sample with \glspl{bpc}. It seems no coincidence that it is spoken in the same area of intense contact between Austronesian and non-Austronesian languages as Papuan Malay, the only Austronesian language in the sample with postnominal \glspl{apc} (Table~\ref{table:postAPC}) and itself an important contact language for Windesi Wamesa (\citealp[68f.]{gasser2014}; \citealp[27--33]{kluge2017}), see Figure~2 in the main paper.
+%Non-third person marking is presumably not available in the singular, however (Emily Gasser, p.c.).
+
+\ex Bilua\label{ex:biluabpc}\\
+\begingl
+\gla enge=ko visi=\textbf{nga}//
+\glb 1\Pl.\Excl=3\Sg.\F{} younger.sibling=2\Sg//
+\glft `you who are our younger sister'\\
+\citep[103, (7.116)]{obata2003}//
+\endgl
+\xe
+
+\ex Windesi Wamesa\label{ex:windesibpc}\\
+\begingl
+\gla sinitu=pa-\textbf{tata}//
+\glb person=\Det{}-1\Pl{}.\Incl{}//
+\glft `we people' \\{\citep[144, (3.46)]{gasser2014}}//
+\endgl
+\xe
+
+%seven from Melanesia, representing five independent families (Austronesian, Angan, Central Solomons, Sepik, Trans-New Guinea), two from southern Africa (Khoekhoe, Khwe) and North America (Mi'kmaq, Classical Nahuatl) respectively and one from Europe (Basque). 
+%Many of these \gls{persn} markers also indicate number and gender and are sometimes called \gls{png}-markers in the literature. 
+
+
+
+\begin{table}[htb!]
+\centering
+\caption{Languages with \glspl{bpc}\label{table:cliticPerson}\\$^a$: also has prenominal \glspl{apc}, $^b$: also has postnominal \glspl{apc}, $^c$ allows prenominal pronouns in \glspl{bpc}.}
+\begin{tabular}{llllll}
+    \textbf{Language}  & \textbf{Classification}         & \textbf{Adpos.} & \textbf{Genit.}	& \textbf{WO} & \textbf{Demonstr.}   \\
+  \midrule
+\multicolumn{2}{l}{\emph{prenominal \glspl{bpc}}}\\    
+    \midrule
+  Classical Nahuatl 	& Aztecan 		& NoAdpos & unclear 	& NC & mixed \\ 
+  Moskona$^{ac}$ 	& East Bird's Head 	& pre 	  & GenN 	& VO & NDem \\ 
+    \midrule
+\multicolumn{2}{l}{\emph{postnominal \glspl{bpc}}}\\    
+    \midrule
+  Menya$^c$ 	& Angan, Nuclear Angan 		& post 	& GenN & OV & NDem \\ 
+  Bilua$^{ac}$ 	& Bilua 			& post 	& GenN & VO & DemN \\ 
+  Alamblak 	& Sepik Hill 			& post 	& GenN & OV & DemN \\ 
+  Fore 		& \gls{tng}, Fore-Gimi 		& post 	& GenN & OV & DemN \\ 
+  Hua 		& \gls{tng}, Siane-Yagaria 	& post 	& GenN & OV & DemN \\ 
+  Yagaria$^b$ 	& \gls{tng}, Siane-Yagaria 	& post 	& GenN & OV & DemN \\ 
+  Windesi Wamesa & Austronesian, Oceanic	& pre 	& GenN & VO & NDem \\ 
+  Mi’kmaq$^c$ 	& Algonquian 			& NoDom & GenN & NC & DemN \\ 
+  Khoekhoe (Nama)$^c$ & Khoe-Kwadi 		& post 	& GenN & OV & DemN \\ 
+  Khwe/Kxoe$^c$ & Khoe-Kwadi	 		& post 	& GenN & OV & DemN \\ 
+  Basque$^c$	& Basque 			& post 	& GenN & OV & NDem \\ 
+
+\end{tabular}
+\end{table}
+
+
+Six languages, marked by $^c$ in Table~\ref{table:cliticPerson}, also seem to permit an additional prenominal pronoun(-like) \gls{persn}-marking in \glspl{bpc} (for further discussion see Sections~5.1 and 5.3 in the main paper). For the three \gls{bpc} languages marked with $^a$ and $^b$ in Table~\ref{table:cliticPerson} there is some evidence for independent \glspl{apc} as well.
+
+\gls{persn} in Moskona is marked by prefixes on ``[g]eneric nouns which denote humans'' \citep[219]{gravelle2010}, see (\nextx a). Adjectival (and numeral) modifiers also seem to show person-number agreement \citep[127]{gravelle2010}; see (\nextx b). Additionally, \citet[224]{gravelle2010} shows examples containing only a prenominal \gls{apc} without the prenominal \gls{persn} marker (\nextx c). They generally contain proper names, so maybe those are incompatible with Moskona's \gls{persn} prefixes.
+
+\pex Moskona
+\a
+\begingl
+\gla \textbf{mi}-osnok mi-en-ah-miy,  mi-en-ot jig miyes + mi-er tofi.//
+\glb 1\Pl{}-person 1\Pl-\Dur{}-lie-water 1\Pl-\Dur{}-stand \Loc{} clothes 1\Pl{}-wear hat//
+\glft `we people bathe, wear clothes, wear hats\ldots' (stand in clothes = wear clothes)\\
+\citep[after][344, (2)]{gravelle2010}//
+\endgl
+\a \begingl
+\gla \textbf{i}-osnok \textbf{i}-ofogo//
+\glb 3\Pl-person 3\Pl-evil//
+\glft `evil people'\\
+\citep[194, (26a)]{gravelle2010}//
+\endgl
+\a
+\begingl
+\gla \textbf{eri} Mosmir//
+\glb they Maybrat//
+\glft `Maybrat people/tribe'\\
+\citep[224, (43b)]{gravelle2010}//
+\endgl
+\xe
+
+Independently of the postnominal \gls{bpc} mentioned above (\ref{ex:biluabpc}), Bilua also seems to allow prenominal \glspl{apc} (\nextx). The ligature marker ``occurs only between morphemes which belong to the same phrase'' \citep[79]{obata2003}, suggesting that (\nextx) does not involve apposition of two distinct noun phrases.
+
+\ex Bilua\label{ex:biluaPreAPC}\\
+\begingl
+\gla \textbf{enge}=a saidi//
+\glb 1\Pl{}.\Excl{}=\Lig{} family//
+\glft `we, family'\\{\citep[79, (7.10)]{obata2003}}//
+\endgl
+%\nomenclature[G]{\lig}{ligature \citep{obata2003}}
+\xe%
+
+Finally, Yagaria has postnominal \glspl{bpc} (\nextx a), but also uses postnominal pronouns ``in focused phrases [\ldots], especially in transitive clauses where the marking of the subject is obligatory'' \citep[17]{renck1975}. The construction is also available with focused objects, see (\nextx b), making an analysis of the postnominal pronoun as a resumptive less likely, since the noun \emph{ve} is not left-peripheral here. %\footnote{While Renck's examples only involve third person pronouns, no person restriction is mentioned. Yagaria also has bound person marking, see section~\ref{ssec:Gorokan} for non-third person examples of that type.} 
+%\citet[181]{renck1975} suggests that the postnominal pronominal indicates focus on the noun phrase ``somewhat in the same way as the pivotal marker'', which is in complementary distribution with adnominal pronouns in Yagaria and possibly also in Fore (\citealp[103]{scott1978}). The pivotal marker is discussed in Section~\ref{ssec:Gorokan}.
+%\citet[90ff.]{deswart2007}
+% some further comment?
+
+\pex Yagaria
+\a
+\begingl
+\gla {}[Ovu-\textbf{da}] ma-lo' bei-d-u-e//
+\glb \phantom{[}Ovi-I this-\Loc{} live-\Pst{}-1.\Sg{}-\Ind{}//
+\glft `I, Ovu, am here.'//
+\endgl
+%\a
+%\begingl
+%\gla \textbf{yale} \textbf{pagaea} gayale hae-d-a-e//
+%\glb people they pig shoot-\Pst{}-3\Pl{}-\Ind{}//
+%\glft `The people shot the pig.'\trailingcitation{\citealp[17]{renck1975}}//
+%\endgl
+%\a 
+%\begingl
+%\gla \textbf{ve} \textbf{agaea} o-d-i-e//
+%\glb man he come-\Pst{}-3\Sg{}-\Ind{}//
+%\glft `The man came.'\\{\citep[17]{renck1975}}//
+%\endgl
+%\a\label{ex:yagariaAPC.Obj}
+\a
+\begingl
+\gla dagaea [ve \textbf{agaea}] $\emptyset$-begi-d-u-e//
+\glb I \phantom{[}man he him-hit-\Pst{}-1\Sg{}-\Ind{}//
+\glft `I hit the man.' \\{\citep[18f.]{renck1975}}//
+\endgl
+\xe
+
+Closely related Fore might also involve postnominal \glspl{apc}, although \citet[100]{scott1978} notes the possibility of an intonational break before the ``pronominal copy'' indicated by the comma in (\nextx). Since a resumptive analysis cannot be excluded at least for this example, I treat Fore as only having postnominal \glspl{bpc} for now, cf.\ (5) in the main paper.\footnote{Classifying Fore as language with postnominal \glspl{apc} would only strengthen the tendencies observed in the next section.}
+
+\ex Fore\\
+\begingl
+\gla {}[teméni'-N a-pa:'], [\textbf{áe'}] kana-y-e//
+\glb Temeni-\Obl{} his-father he come-he-\Ind{}//
+\glft `Temeni's father is coming.'\\{\citep[after][100, (163a)]{scott1978}}//
+\endgl
+\xe
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Supporting tables}
+
+
+\subsection{For Section 5.1}
+
+\begin{table}[htb!]
+\caption{Languages with prenominal \glspl{apc} and at least two indicators of head-finality\label{table:PronN-headfin}}
+\centering
+ \begin{tabular}{lllll}
+    \textbf{Language}  & \textbf{Classification}         & \textbf{Genit.} 	& \textbf{Adpos.}	& \textbf{WO} \\
+    \midrule
+  Bilua & Bilua & GenN & post & VO 			\\ 
+  Hungarian & Uralic, Ugric & GenN & post & VO 		\\ 
+  Finnish & Uralic, Finnic & GenN & post & VO 		\\ 
+  Japanese & Japanese & GenN & post & OV 		\\ 
+  Korean & Korean & GenN & post & OV 			\\ 
+  Evenki & Tungusic & GenN & post & OV 			\\ 
+  Turkish & Turkic & GenN & post & OV 			\\ 
+  Momu & Baibai-Fas & GenN & post & OV 			\\ 
+  Manambu & Sepik, Ndu & GenN & post & OV 		\\ 
+  Awtuw & Sepik, Ram & GenN & post & OV 		\\ 
+  Chitimacha & Chitimacha & GenN & post & OV 		\\ 
+  Kannada & Dravidian & GenN & post & OV 		\\ 
+  Malayalam & Dravidian & GenN & post & OV 		\\ 
+  Tamil & Dravidian & GenN & post & OV 			\\ 
+  Kashmiri & \gls{ie}, Indic & GenN & post & OV 	\\ 
+  Marathi & \gls{ie}, Indic & GenN & post & OV 		\\ 
+  Punjabi & \gls{ie}, Indic & GenN & post & OV 		\\ 
+  Supyire & Niger-Congo, Senufo & GenN & post & OV 	\\ 
+  Lezgian & Lezgic & GenN & post & OV 			\\ 
+  Abkhaz & Northwest Caucasian & GenN & post & OV 		\\ 
+  Kambaata & Afroasiatic, East Cushitic & GenN & NoAdpos & OV \\ 
+  Diyari & Central \gls{pn} & GenN & unclear & OV \\ 
+
+    \end{tabular} 
+\end{table}
+
+\clearpage
+
+\subsection{For Section 5.3}
+
+\begin{table}[htb!]
+\caption{Languages with mismatch in directionality of \glspl{apc} and demonstrative modifiers. In column \gls{ppdc}, (\Checkmark) indicates that the attested \gls{ppdc} examples involve no overt noun.\label{table:APCDemmismatch}}
+\centering
+ \begin{tabular}{lllp{.25\linewidth}}
+    \textbf{Language}  & \textbf{Classification}        & \textbf{Alt. \Dem{} position}  &  \textbf{\gls{ppdc}}\\	%(\ref{ex:demdeviations}b)
+    \midrule
+    \multicolumn{2}{l}{\emph{prenominal \glspl{apc} and NDem}}\\
+    \midrule
+  Momu 		& Baibai-Fas & 		& \Checkmark \citealt[559]{honeyman2016}\\ 	% (9/10)
+  Moskona	& East Bird's Head & 	& \Checkmark \citealt[187]{gravelle2010}\\	% (1)
+  Sougb 	& East Bird's Head & 	& \Checkmark \citealt[271]{reesink2002sougb}\\  %, (13)
+  Hatam 	& Hatim-Mansim & 	& \Checkmark \citealt[41, 195]{reesink1999}\\ 
+  Urim 		& Urim  & 		& \Checkmark \citealt[140]{hemmilaeluoma1987}\\ 
+  Mupun 	& Afroasiatic  \\						% , West Chadic 
+  Gorwaa 	& Afroasiatic  &	& \Checkmark \citealt[116]{harvey2018}\\ 	% , Southern Cushitic
+  Cair.\ Eg.\ Arabic & Afroasiatic & (\Checkmark) \citealt[350f.]{doss1979}\footnotemark \\ 
+  Indonesian 	& Austronesian  & 	& (\Checkmark) \citealt[169]{sneddon1996}\\ 	% , Malayo-Sumbawan
+  Loniu 	& Austronesian  &	& \Checkmark \citealt[100]{hamel1994}\\ 		% , Oceanic
+  Tuvaluan 	& Austronesian  &	& (\Checkmark) \citealt[409]{besnier2000}\\ % , Oceanic
+  Kwaio 	& Austronesian  &\\ 						% , Oceanic
+  Arop-Lokep 	& Austronesian  &	& \Checkmark \citealt[255]{djernes2002}\\ 	% , Oceanic
+  Cheke Holo 	& Austronesian  & \Checkmark \citealt[169]{boswell2018} & \Checkmark \citealt[165]{boswell2018}\\ 	% , Oceanic
+  Hoava 	& Austronesian  &	& \Checkmark \citealt[48]{davis2003}\\ 		% , Oceanic
+  Kokota 	& Austronesian  &	& \Checkmark \citealt[116]{palmer2008}\\ 	% , Oceanic
+  Wari' 	& Chapacura-Wanham & 	& \\ 
+  Ndyuka 	& Creoles and Pidgins & & (\Checkmark) \citealt[203, 329]{huttarhuttar1994}\\ 
+  Welsh 	& \gls{ie}  & 	& \\ 			% , Celtic
+  Luganda 	& Niger-Congo  & \Checkmark \citealt[41]{ashtonetal1954}	&\\ 		% , Bantu  , fn. 2
+  Nkore-Kiga 	& Niger-Congo  & \Checkmark \citealt[10]{tayebwa2014} \\ 		% , Bantu
+  Nzadi 	& Niger-Congo  & \Checkmark \citealt[100]{craneetal2011}\\ 		% , Bantu
+  Swahili 	& Niger-Congo  & \Checkmark \citealt[35]{mpiranya2015}\\ 		% , Bantu
+  Babungo 	& Niger-Congo  & \Checkmark \citealt[73]{schaub1985}\\ 		% , Wide Grassfields
+  Koromfe 	& Niger-Congo  &	& \Checkmark John Rennison, pers. comm.\\ 	% , Koromfe
+  Lakkia 	& Kadai  	&	& \\ 
+  \midrule
+  \multicolumn{2}{l}{\emph{postnominal \glspl{apc} and DemN}}\\
+  \midrule
+  Savosavo 	& Savosavo  &		& (\Checkmark) \citealt[86]{wegener2012}\\ 
+%  Fore 		& \gls{tng}, Fore-Gimi & post & DemN \\ 
+  Yagaria 	& \gls{tng}  \\ 			% , Siane-Yagaria
+  East Geshiza 	& Sino-Tibetan & \Checkmark \citealt[40]{honkasalo2019} & \Checkmark (\ref{ex:geshizappdc}), \citealt[301f., 400]{honkasalo2019}\\ 		% , Burmo-Qiangic
+
+    \end{tabular} 
+\end{table}
+\footnotetext{Following \citet[351]{doss1979} DemN orders in Colloquial Egyptian Arabic are highly restricted and ``constitute residuals from a previous stage during which the variation of word-order was a freer one.''}
+
+
+\begin{table}[htb!]
+\caption{\glspl{ppdc} in languages with \glspl{apc} with matching demonstrative directionality. (\Checkmark) indicates that attested \glspl{ppdc} contained no overt noun.\label{table:PPDCotherAPC}}
+\centering
+\begin{tabular}{lllp{.3\linewidth}}
+    \textbf{Language}  & \textbf{Classification}    &  \textbf{\Dem{} order} & \textbf{\gls{ppdc}} \\
+    \midrule
+    \multicolumn{2}{l}{\emph{prenominal \glspl{apc}}}\\
+    \midrule
+  Japanese & Japanese 		& DemN & (\Checkmark) \citealt[214]{coulmas1982}; \citealt[153]{furuya2008}; \citealt[777]{noguchi1997} \\ 
+  Korean & Korean 		& DemN & (\Checkmark) \citealt[281]{sohn1994} \\ 
+  Diyari & Central \gls{pn} 	& DemN & (\Checkmark) \citealt[61, (36)]{austin1981}\\ 
+  Kayardild & Tangkic 		& DemN & \Checkmark \citealt[251, (6-37)]{evans1995} \\ 
+  Manambu & Sepik, Ndu 		& DemN & \Checkmark \citealt[198]{aikhenvald2008} \\ 
+  Pomak &  \gls{ie}	 	& DemN & (\Checkmark) \citealt[581]{papadimitriou2008}\\ 
+  Mandarin & Sino-Tibetan 	& DemN & \Checkmark \citealt[298f.]{huangetal2009}\\ 
+  Hausa & Afroasiatic 		& mixed & \Checkmark \citealt[331]{jaggar2001}; \citealt[155, 371]{newman2000} \\ 
+  Maori & Austronesian 		& mixed & (\Checkmark) \citealt[263f.]{bauer1997}\\ 
+  Malagasy & Austronesian 	& both & \Checkmark \citealt[422]{paultravis2019} \\ 
+\midrule
+  \multicolumn{2}{l}{postnominal \glspl{apc}}\\
+  \midrule
+  Lavukaleve & Lavukaleve 	& NDem & (\Checkmark) \citealt[181, (220-1)]{terrill2003}\\ 
+  Amele & \gls{tng} 		& NDem & \Checkmark (16) in main text, \citealt[210, 218]{roberts1987amele} \\ 
+  Kaera & \gls{tng} 		& NDem & \Checkmark \citealt[129, (99)]{klamer2014} \\ 
+  Papuan Malay 	& Austronesian 	& NDem & \Checkmark \citealt[353, (66/67)]{kluge2017} \\ 
+\midrule
+  \multicolumn{2}{l}{ambidirectional \glspl{apc}}\\
+  \midrule  
+  Kuku-Yalanji & Northern \gls{pn} 	& mixed & \Checkmark \citealt[204, (625)]{patz2002} \\
+  Guugu Yimidhirr & Northern \gls{pn} 	& DemN & \Checkmark \citealt[73, (107); 157, (423); 160]{haviland1979} \\ 
+  Pitjantjatjara & Western \gls{pn} 	& NDem & \Checkmark \citealt[48--51]{bowe1990} \\ 
+  Usan & \gls{tng} 			& NDem & \Checkmark (\ref{ex:usanppdc}), \citealt[190, (141)]{reesink1987} \\ 
+\end{tabular}  
+\end{table}
+  
+
+
+
+\begin{table}[htb!]
+\caption{Languages with \gls{bpc} allowing additional adnominal \gls{persn}-marking and/or \glspl{ppdc}. For (\Checkmark) the attested \glspl{ppdc} involve no overt noun.\label{table:bpcppdc}}
+\centering
+\begin{tabular}{lllll}
+    \textbf{Language}  & \textbf{Classification}   & \textbf{\Dem{} order} & \textbf{Pron. in \gls{bpc}} & \textbf{\gls{ppdc}} \\
+    \midrule   
+  \multicolumn{2}{l}{\emph{Postnominal \gls{bpc}}} \\
+  \midrule
+  Khoekhoe & Khoe-Kwadi   & DemN & pre & \Checkmark \citealt[54]{haacke1977} \\ 
+  Khwe/Kxoe & Khoe-Kwadi  & DemN & pre & \Checkmark \citealt[41, (2/3); 49, (25)]{kilianhatz2008} \\ 
+  Menya & Nuclear Angan   & NDem & pre & \Checkmark \citealt[30, (58/59)]{whitehead2006} \\ 
+  Alamblak & Sepik	  & DemN &     & \Checkmark \citealt[90, (149a)]{bruce1984}\\
+  Bilua & Bilua  	  & DemN & pre & \Checkmark \citealt[289, (8)]{obata2003}\\ 
+  Mi’kmaq & Algonquian    & DemN & pre &\\ 
+  Basque & Basque  	  & NDem & pre &   \\
+  \midrule
+  \multicolumn{2}{l}{\emph{Prenominal \gls{bpc}}} \\
+  \midrule
+  Moskona & East Bird's Head & NDem & pre & \Checkmark \citealt[187, 224]{gravelle2010} \\ 
+
+\end{tabular}
+\end{table}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Model selection for random intercept structure}
+
+As discussed in Section 4.3 of the main text, the generalised linear mixed-effect model to be developed involves \gls{apc} directionality as dependent variable and the two fixed effects \textsc{headfin} (for head-directionality) and \textsc{demfin} (for noun-demonstrative order), see (\nextx). This additional section discusses the method used for determining the random effect structure.
+
+\ex \textsc{APCDir} $\sim$ \textsc{headfin} + \textsc{demfin}  + \emph{random effects} \xe
+
+Two types of random effects to consider for inclusion into the target model are phylogenetic relationships between the languages in the sample and their geographical clustering/distance. 
+To asses the impact of phylogenetic distance, two levels of detail were considered, language \textsc{family} (f) and \textsc{genus} (g) following, e.g. \citet{dryer1989} and the notation in WALS \citep{wals}. In addition to either of the two phylogenetic descriptors in isolation as random intercepts, models were also fitted with \textsc{genus} nested under \textsc{family} in order to capture the phylogenetic structure.
+In order to assess potential areal effects and language contact, I calculated the distances between languages based on their coordinates (spherical distances, calculated with the function function \texttt{distm}, \texttt{geosphere} package \citealt{R:geosphere}). The distance matrix between the locations of the sample languages was reduced to one and two dimensions with multidimensional scaling (\texttt{cmdscale} function). The estimates of these two dimensions for each language were used as random intercepts dist.1 and dist.2 in (42). 
+The estimates of the scaling to two dimensions (2D) were coded using two random intercepts \textsc{mds1} and \textsc{mds2}. An alternative with reduction to one dimension (1D) was also considered with the estimate coded by the random intercept \textsc{mds.single}.
+ 
+The various combinations of these random intercept structures are listed in Table~\ref{tab:randommodels}, with the dependent variable and fixed effects from (\lastx) replaced by \ldots{} for brevity.
+Models marked with * did not converge and models marked with ! had a singular fit, indicating overfitting.
+
+\begin{table}[htb!]
+\centering
+\caption{Random effect structures for (\lastx) \label{tab:randommodels}}
+\begin{tabular}{lrrcl}
+   & issues 	& \multicolumn{2}{c}{model} & random effects\\
+\midrule 
+a. & 		& mdir.2Dfg & = \ldots + & (1 | \textsc{mds1}) + (1 | \textsc{mds2}) + (1 | \textsc{family}/\textsc{genus}) \\
+b. & \ljudge{*} & mdir.2Df  & = \ldots + & (1 | \textsc{mds1}) + (1 | \textsc{mds2}) + (1 | \textsc{family})\\
+c. &  		& mdir.2Dg  & = \ldots + & (1 | \textsc{mds1}) + (1 | \textsc{mds2}) + (1 | \textsc{genus})\\
+d. & \ljudge{!} & mdir.2D   & = \ldots + & (1 | \textsc{mds1}) + (1 | \textsc{mds2}) \\
+e. & \ljudge{!} & mdir.1Dfg & = \ldots + & (1 | \textsc{mds.single}) + (1 | \textsc{family}/\textsc{genus})\\
+f. & 		& mdir.1Df  & = \ldots + & (1 | \textsc{mds.single}) + (1 | \textsc{family})\\
+g. & 	 	& mdir.1Dg  & = \ldots + & (1 | \textsc{mds.single}) + (1 | \textsc{genus})\\
+h. & \ljudge{!} & mdir.1D   & = \ldots + & (1 | \textsc{mds.single})\\
+i. &  		& mdir.fg   & = \ldots + & (1 | \textsc{family}/\textsc{genus})\\
+j. & 		& mdir.f    & = \ldots + & (1 | \textsc{family})\\
+k. & 		& mdir.g    & = \ldots + & (1 | \textsc{genus})\\
+\end{tabular}
+\end{table}
+
+In order to identify a random effect structure that appropriately balances modelling detail and overfitting, the converging models are compared in an ANOVA in Table~\ref{tab:modelselect}. 
+
+
+\begin{table}[htb!]
+\centering
+\caption{Model selection among converging models from Table~\ref{tab:randommodels} \label{tab:modelselect}}
+\begin{tabular}{llrrrrrrrr}
+  &	& npar & AIC & BIC & logLik & deviance & $\chi^2$ & Df & Pr($>$Chisq) \\ 
+  \midrule
+	& mdir.1D   & 4 & 47.414 & 57.671 & -19.707 & 39.41 &  &  &  \\ 
+	& mdir.f    & 4 & 29.418 & 39.675 & -10.709 & 21.42 & 18.00 & 0 &  \\ 
+\HandRight	& \textbf{mdir.g}    & 4 & \textbf{29.398} & 39.655 & -10.699 & 21.40 & 0.02 & 0 &  \\ 
+	& mdir.2D   & 5 & 49.414 & 62.236 & -19.707 & 39.41 & 0.00 & 1 & 1.00 \\ 
+	& mdir.1Dg  & 5 & 31.398 & 44.220 & -10.699 & 21.40 & 18.02 & 0 &  \\ 
+	& mdir.1Df  & 5 & 31.418 & 44.240 & -10.709 & 21.42 & 0.00 & 0 &  \\ 
+	& mdir.fg   & 5 & 31.396 & 44.218 & -10.698 & 21.40 & 0.02 & 0 &  \\ 
+	& mdir.2Dg  & 6 & 33.398 & 48.784 & -10.699 & 21.40 & 0.00 & 1 & 1.00 \\ 
+	& mdir.1Dfg & 6 & 33.418 & 48.804 & -10.709 & 21.42 & 0.00 & 0 &  \\ 
+	& mdir.2Dfg & 7 & 35.398 & 53.348 & -10.699 & 21.40 & 0.02 & 1 & 0.89 \\ 
+\end{tabular}
+\end{table}
+
+The model comparison indicates that model \texttt{mdir.g} with only \textsc{genus} as random intercept has the lowest \gls{aic}, so the analysis in the main text adopts the model in (\nextx).
+
+\ex \textsc{APCDir} $\sim$ \textsc{headfin} + \textsc{demfin}  + (1 | \textsc{genus}) \xe
+
+
+%\clearpage
+
+\section{List of surveyed languages}
+
+Grammars based on \citeapos{comriesmith1977} questionnaire are marked (Q). Genus information is based on the corresponding classification in WALS \citep{wals}. For languages without WALS entry (marked by *) genus is extrapolated from Glottolog \citep{glottolog4.5} or the respective grammars. The final column provides references to \gls{persn}-related discussion and/or data for each language. 
+
+
+\begin{longtable}{p{.11\linewidth}p{.2\linewidth}p{.24\linewidth}p{.35\linewidth}}
+
+\caption{List of surveyed languages \label{tab:langsample}}\\
+%\begin{center}
+\toprule
+\textbf{Glottocode} & \textbf{Language} & \textbf{Genus} & \textbf{Main source(s)}\\
+\midrule\endfirsthead
+\caption[]{(continued)}\\
+\toprule
+\textbf{Glottocode} & \textbf{Language} & \textbf{Genus} & \textbf{Main source(s)}\\
+\midrule\endhead
+%\tablefirsthead{\toprule
+%\textbf{Language} & \textbf{Family} & \textbf{Main source(s)}\\
+%\midrule}
+%\tablehead{\toprule
+%\textbf{Language} & \textbf{Family} & \textbf{Main source(s)}\\
+%\midrule}
+%\tabletail{\multicolumn{3}{r}{\emph{continued}}\\}
+%\tablelasttail{}
+%\tablecaption{List of surveyed languages \label{tab:langsample}}
+%\begin{mpsupertabular}{p{.23\linewidth}  p{.38\linewidth}  p{.36\linewidth}}
+%\midrule
+\multicolumn{4}{c}{{\emph{Afroasiatic languages (7 languages/4 genera)}}}\\
+\midrule
+haus1257	& Hausa 		& West Chadic 		& \citealp[63, 155, 370f.]{newman2000}; \citealp[330f.]{jaggar2001}\\
+mwag1236	& Mupun 		& West Chadic 		& \citealp[172]{frajzyngier1993}\\
+goro1270	& Gorwaa		& Southern Cushitic 	& \citealp[163]{harvey2018}\\
+kamb1316	& Kambaata 		& East Cushitic* 	& \citealp[335]{treis2008}\\
+egyp1253	& Cairene Egypt. Arabic & Semitic 	 	& (Q) \citealp[78, 80]{garygamal1982}\\
+gulf1241	& Gulf Arabic 		& Semitic 	 	& (Q) \citealp[162, 165]{holes1990}\\
+malt1254	& Maltese 		& Semitic 	 	& (Q) \citealp[187f., 202]{borgazzopardialexander1997}\\
+\midrule
+\multicolumn{4}{c}{{\emph{Australian languages (7 languages/5 genera)}}}\\
+\midrule
+mang1381	& Mangarrayi 		& Mangarrayi 			& (Q) \citealp[103; 203]{merlan1989}\\
+%?Bilinarra & Pama-Nyungan & \citealp{meakinsnordlinger2014}\\
+dier1241	& Diyari 		& Central \gls{pn} 		& \citealp[97f.]{austin1981}, \citep[102f.]{austin2013}\\
+warl1254	& Warlpiri 		& Western \gls{pn} 		& \citealp[70]{reece1970}; \citealp[316f.]{hale1973}\\
+pitj1243	& Pitjantjatjara 	& Western \gls{pn} 		& \citealp[49--51]{bowe1990}\\
+gugu1255	& Guugu Yimidhirr 	& Northern \gls{pn} 	& \citealp[104, 156f.]{haviland1979}\\
+kuku1273	& Kuku Yalanji 		& Northern \gls{pn} 	& \citealp[120f., 202f.]{patz2002}\\
+%Yidin & Pama-Nyungan, Ngumbin & \citealp{dixon1977}\\
+kaya1319	& Kayardild 		& Tangkic 		& \citealp[239; 251]{evans1995}; \citealt[141]{round2013}\\
+\midrule
+\multicolumn{4}{c}{{\emph{Austronesian languages (12 languages/3 genera)}}}\\
+\midrule
+%Std. Fijian & Austronesian & \citealp{palmer2017}\\
+mala1537	& Malagasy 		& Barito	 	& \citealp{paultravis2019}\\
+stin1234	& Indonesian 		& Malayo-Sumbawan 	& \citealp[170]{sneddon1996}\\
+papu1250	& Papuan Malay 		& Malayo-Sumbawan 	& \citealp[ch. 6.2]{kluge2017}\\
+loni1238	& Loniu			& Oceanic 		& \citealp[90]{hamel1994}\\
+wame1241	& Windesi Wamesa 	& Oceanic* 		& \citealp[144]{gasser2014}\\
+maor1246	& Maori 		& Oceanic 		& (Q) \citealp[368, 373]{bauer1993}; \citealp[262f.]{bauer1997}\\
+tuva1244	& Tuvaluan 		& Oceanic 		& (Q) \citealp[392f.]{besnier2000}\\
+kwai1243	& Kwaio 		& Oceanic 		& \citealp[104]{keesing1985}\\
+arop1243	& Arop-Lokep		& Oceanic		& \citealp[255]{djernes2002}\\
+chek1238	& Cheke Holo		& Oceanic		& \citealp[165]{boswell2018}\\
+hoav1238	& Hoava 		& Oceanic		& \citealp[47]{davis2003}; \citealp{palmer2017}\\
+koko1269	& Kokota		& Oceanic		& \citealp[68, 95, 116, 119, 123, 131, 137, 163, 242, 300, 305, 327, 399, 414]{palmer2008}\\
+%Madurese & Austronesian, Malayo-Polynesian & \citealp{davies2010}\\
+%Rapanui & Austronesian, Oceanic, Eastern Polynesian & (C) \citealp{dufeu1996}\\
+%Vaeakau-Taumako & Austronesian, Oceanic, Polynesian & \citealp{naesshovdhaugen2011}\\
+\midrule
+\multicolumn{4}{c}{{\emph{Dravidian languages (3 languages/1 genus)}}}\\
+\midrule
+nucl1305	& Kannada 	& Dravidian & (Q) \citealp[205, 208f.]{sridhar1990}\\
+mala1464	& Malayalam 	& Dravidian & (Q) \citealp[262f.]{asherkumari1997}\\
+tami1289	& Tamil 	& Dravidian & (Q) \citealp[142, 146]{asher1985}\\
+\midrule
+\multicolumn{4}{c}{{\emph{Indo-European languages (27 languages/7 genera)}}}\\
+\midrule
+wels1247	& Welsh 		& Celtic & David Willis (pers. comm.) \\
+dani1285	& Danish 		& Germanic & \citealt{johannessen2008}; \citealt{schroeter2021}\\
+icel1247	& Icelandic 		& Germanic & \citealp{johannessen2008}; \citealt[11f.]{sigurdssonwood2020}\\
+norw1258	& Norwegian 		& Germanic & \citealp[127, 129]{julien2005}; \citealp{johannessen2008}\\
+swed1254	& Swedish 		& Germanic & \citealp[128]{julien2005}; \citealp{johannessen2008}\\
+dutc1256	& Dutch 		& Germanic & \citealt[52]{corver2008vocative}\\
+stan1293	& English 		& Germanic & \citealp{postal1969, delormedougherty1972, sommerstein1972, pesetsky1978, keizer2016}\\
+stan1295	& German 		& Germanic & \citealp[ch. 6]{lawrenz1993}; \citealp{rauh2003, rauh2004, roehrs2005}\\
+mode1248	& Std. Mod. Greek 	& Greek & \citealp[chs. 1/2]{choi2014phd}; \citealp[sec. 5]{hoehn2015unagr}\\
+aspr1238	& Calabrian Greek/Greko	& Greek* &  \citealp[274]{hoehnetalICGLcalabria}\\
+kash1277	& Kashmiri 		& Indic & (Q) \citealp[200]{walikoul1997}\\
+mara1378	& Marathi 		& Indic  & (Q) \citealp[386]{pandharipande1997}\\
+panj1256	& Punjabi 		& Indic & (Q) \citealp[228]{bhatia1993}\\
+west2369	& Persian 		& Iranian & (Q) \citealp[209, 212]{mahootian1997}\\
+arom1237	& Aromanian 		& Romance* & \citealp[546, 560]{hoehn2015unagr}\\
+roma1327	& Romanian 		& Romance & (Q) \citealp[255, 258]{mallinson1986}, \citealp[6, 10, 20f.]{cornilescunicolae2014}\\
+stan1289	& Catalan 		& Romance & (Q) \citealp[287, 290]{hualde1992catalan}; \citealt[560]{hoehn2015unagr}\\
+gali1258	& Galician 		& Romance & \citealp[152, 301]{alvarezetal1986}; \citealp[560]{hoehn2015unagr}\\
+port1283	& (Eur.) Portuguese 	& Romance & \citealp[555, 560]{hoehn2015unagr}\\
+stan1288	& Spanish 		& Romance 	& \citealp[145]{debruyne1995}; \citealp[210f.]{choi2014phd}; \citealp[560]{hoehn2015unagr} \\
+ital1282	& Italian 		& Romance 	& \citealt[202f.]{cardinaletti1994}; \citealt[559]{hoehn2015unagr}\\
+nort2612	& Northern Calabrese 	& Romance* & \citealp[142]{hoehnetal2016CalabrUnagr}\\
+sout2616	& Southern Calabrese 	& Romance* & \citealp[142]{hoehnetal2016CalabrUnagr}\\
+russ1263	& Russian 		& Slavic & \citealp[352]{pesetsky1978}\\
+bulg1262	& Bulgarian 		& Slavic & \citealp[560]{hoehn2015unagr}\\
+%Macedonian & IE, Slavic, South & \citealp{friedman2002, tomic2012}\\
+poma1238	& Pomak 		& Slavic* & \citealp[582]{papadimitriou2008}\\
+%BCMS & IE, Slavic, South & \\
+%Slovenian & IE, Slavic, South & \\
+poli1260	& Polish 		& Slavic & \citealp[161]{rutkowski2002}\\
+\midrule
+\multicolumn{4}{c}{{\emph{Khoe-Kwadi languages (2 languages/1 genus)}}}\\
+\midrule
+nama1264	& Khoekhoe (Nama) 	& Khoe-Kwadi 			& \citealp[133--145]{boehm1985}; \citealp{haacke1976, haacke1977, haacke2013namamorph}; \citealt[215f.]{himmelmann1997}; \citealt[142f., 311]{lyons1999}; \citealt[140]{maho1998}; \citealt[18]{rust1965}\\
+kxoe1243	& Khwe (Kxoe) 		& Khoe-Khwadi 			& \citealp[40--43, 79]{kilianhatz2008}\\
+\midrule
+\multicolumn{4}{c}{{\emph{Niger-Congo languages (8 languages/4 genera)}}}\\
+\midrule
+kiny1244	& Kinyarwanda 		& Bantu 	& \citealp[68f.]{vanderwal2022}\\
+%Kirundi & Niger-Congo, Bantu & \\
+%Lubukusu & Niger-Congo, Bantu & \\
+gand1255	& Luganda 		& Bantu 	& \citealt[102]{ashtonetal1954}\\
+nkor1241	& Nkore-Kiga 		& Bantu 	& (Q) \citealp[131]{taylor1985}\\
+nzad1234	& Nzadi			& Bantu*	& \citealp[210, 279]{craneetal2011}\\
+swah1253	& Swahili 		& Bantu 	& Vital Kazimoto (pers. comm.)\\
+veng1238	& Babungo 		& Wide Grassfields & (Q) \citealp[197f.]{schaub1985}\\
+% Dagara & Niger-Congo, Gur & \\
+koro1298	& Koromfe 		& Koromfe 	& (Q) \citealp[242, 250f.]{rennison1997}\\
+% Dan & Niger-Congo, Mande & \\
+% Samogokan & Niger-Congo, Mande & \\
+supy1237	& Supyire 		& Senufo 	& \citealp[207f.]{carlson1994}\\
+\midrule
+\multicolumn{4}{c}{{\emph{Papuan languages (26 languages/19 genera)}}}\\
+\midrule
+meny1245	& Menya		& Nuclear Angan		& \citealp[40, 46, 56f.]{whitehead2006}; \citealp[9f., 18f.]{whitehead2013}\\
+fass1245	& Momu		& Baibai-Fas	 	& \citealp[169f., 242, 568]{honeyman2016}\\
+imon1245	& Imonda 	& Border	 	& \citealp[44, 61f.]{seiler1985}\\
+bilu1245	& Bilua 	& Bilua 		& \citealp[47--49, 76, 79, 84f., 87--89, 92f.]{obata2003}\\
+lavu1241	& Lavukaleve 	& Lavukaleve 		& \citealp[171--173]{terrill2003}, \citealp[435, (27)]{terrill2004}\\
+%Yimas & Ramu-Lower Sepik, Karawari & \citealp{foley1991}\\
+mosk1236	& Moskona	& East Bird's Head* 	& \citealp[91, 222--224, 344]{gravelle2010}\\
+mani1235	& Sougb		& East Bird's Head	& \citealp[200, 269f., 274]{reesink2002sougb}\\
+hata1243	& Hatam		& Hatim-Mansim		& \citealp[195]{reesink1999}\\
+maib1239	& Maybrat	& Maybrat		& \citealp[141, 158, 172, (281)]{dol2007}\\
+urim1252	& Urim		& Urim			& \citealp[123, 125]{hemmilaeluoma1987}\\
+savo1255	& Savosavo	& Savosavo*		& \citealp[147,155--159]{wegener2012}\\
+mana1298	& Manambu 	& Sepik, Ndu 		& \citealp[197f., 508--513]{aikhenvald2008}\\
+awtu1239	& Awtuw 	& Sepik, Ram 		& \citealp[120--124]{feldman1986}\\
+alam1246	& Alamblak 	& Sepik, Sepik Hill 	& \citealp[90--92, 96f.]{bruce1984}\\
+fore1270	& Fore 		& \gls{tng}, Fore-Gimi 		& \citealp[79f., 100f.]{scott1978}\\
+huaa1250	& Hua 		& \gls{tng}, Siane-Yagaria 	& \citealp[226--232, 239f.]{haiman1980}\\
+yaga1260	& Yagaria (\emph{Move}) & \gls{tng}, Siane-Yagaria & \citealp[17f., 166, 181]{renck1975}\\
+amel1241	& Amele 	& \gls{tng}, Mabuso 		& (Q) \citealp[162, 201, 209f.]{roberts1987amele}\\
+kobo1249	& Kobon 	& \gls{tng}, Kalam-Kobon 	& (Q) \citealp[107f., 157]{davies1989}\\
+usan1239	& Usan 		& \gls{tng}, North Adelbert 	& \citealp[53f., 167, 190f., 353]{reesink1987}\\
+adan1251	& Adang 	& \gls{tng}, Alor-Pantar 	& \citealp[261]{robinsonhaan2014}\\
+kaer1234	& Kaera 	& \gls{tng}, Alor-Pantar* 	& \citealp[129]{klamer2014}\\
+kama1365	& Kamang 	& \gls{tng}, Alor-Pantar 	& \citealp[313f.]{schapper2014}\\
+sawi1256	& Sawila 	& \gls{tng}, Alor-Pantar* 	& \citealp[391]{kratochvil2014}\\ 
+wers1238	& Wersing 	& \gls{tng}, Alor-Pantar 	& \citealp[472]{schapperhendery2014}\\
+%Teiwa & \gls{tng}, \gls{tap}, Pantar & \citealp{klamer2010}\\
+lamm1241	& Western Pantar & \gls{tng}, Alor-Pantar* 	& \citealp[53f.]{holton2014}\\
+%wara1294	& Komnzo	& Yam, Morehead-Maro\*	& \citealp[552]{doehler2016}\\
+\midrule
+\newpage	% for layout reasons
+\multicolumn{4}{c}{{\emph{Sino-Tibetan (2 languages/2 genera)}}}\\
+\midrule
+gesh1238	& East Geshiza	& Burmo-Qiangic* 	& \citealp[388, 400, 438, 480, 507, 646]{honkasalo2019}\\
+mand1415	& Mandarin 	& Chinese 		& \citealt[297--299]{huangetal2009}; \citealp[sec. 7.3]{boskovichsieh2013} \\
+\midrule
+\multicolumn{4}{c}{{\emph{Uralic (2 languages/2 genera)}}}\\
+\midrule
+hung1274	& Hungarian 	& Ugric 		& (Q) \citealp[269]{keneseietal1998}; \citealp[559]{hoehn2015unagr}\\
+finn1318	& Finnish 	& Finnic 		& (Q) \citealp[277]{sulkalakarjalainen1992} \\
+\midrule
+\multicolumn{4}{c}{{\emph{Creoles (3 languages/1 "genus")}}}\\
+\midrule
+ndyu1242	& Ndyuka 	& Creoles 		 	& (Q) \citealp[224, 460, 466f.]{huttarhuttar1994}\\
+nige1257	& Nigerian Pidgin & Creoles 		 	& (Q) \citealp[178, 181]{faraclas1996}\\
+mala1533	& Kristang 	& Creoles 			& \citealp[86]{baxter1988}\\
+\midrule
+\multicolumn{4}{c}{{\emph{Various (15 languages/15 genera)}}}\\
+\midrule
+mikm1235	& Mi’kmaq 	& Algonquian			& \citealp[188]{pacifiqueetal1990}\\
+nucl1297	& Katu 		& Katuic			& \citealp[28]{costello1969}\\
+wari1268	& Wari' 	& Chapacura-Wanham		& (Q) \citealp[303, 310]{everettkern1997}\\
+chit1248	& Chitimacha	& Chitimacha			& \citealp[333]{swadesh1967}\\
+lezg1247	& Lezgian 	& Lezgic			& \citealp[259]{haspelmath1993}\\
+abkh1244	& Abkhaz 	& Northwest Caucasian 		& (Q) \citealp[157, 159]{hewitt1989}\\
+basq1248	& Basque 	& Basque 			& (Q) \citealp[210]{saltarelli1988}; \citealp[122]{trask2003}; \citealp[482, 501f.]{derijk2008}; \citealp[67]{areta2009}; \citealp{artiagoitia2012DP}\\
+clas1250	& Classical Nahuatl & Aztecan	 		& \citealp[192--194]{andrews1975}; \citealp[ch. 17.3]{andrews2003}\\
+even1259	& Evenki 	& Tungusic 			& (Q) \citealp[197, 199]{nedjalkov1997}\\
+hixk1239	& Hixkaryana 	& Cariban 			& (Q) \citealp[131]{derbyshire1979}\\
+nucl1643	& Japanese 	& Japanese 			& (Q) \citealp[254, 261]{hinds1988}; \citealp[780]{noguchi1997}; \citealp[sec. 3.2]{furuya2008}; \citealp{inokuma2009}\\
+kore1280	& Korean 	& Korean 			& (Q) \citealp[284; 292]{sohn1994}; \citealp[151--154]{choi2014phd}\\
+kala1399	& Kalaallisut (W. Greenlandic) 	& Eskimo	& (Q) \citealp[110, 253, 256f.]{fortescue1984}\\
+lakk1238	& Lakkia	& Kadai		 		& \citealp[137]{fan2019}\\
+nucl1301	& Turkish 	& Turkic 			& (Q) \citealp[288, 297f.]{kornfilt1997}\\
+\bottomrule
+%\end{mpsupertabular}
+%\end{table}
+%\end{center}
+\end{longtable}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\clearpage
+\section{Annotation scheme of csv (Supplementary Material S1)}
+
+\begin{description}
+\item[language] language name
+\item[glottolog] glottocode following Glottolog \citep{glottolog4.5}
+\item[sortclass] manual coding of phylogenetic information purely for more accessible sorting of data presentation 
+\item[family] language family based on Glottolog \citep{glottolog4.5}
+\item[genus.print] genus information for presentation purposes
+\item[genus.WALS] genus following WALS \citep{wals} where available, otherwise manually supplied
+\item[printname] language name used on world map
+\item[Oc.printname] language name used on maps for Oceania
+\item[print] set to $1$ if language printed on map
+\item[lat] geographical coordinates based on WALS and glottolog, latitude
+\item[lat] geographical coordinates based on WALS and glottolog, longitude
+\item[hjust] horizontal adjustment for printing language name on world map
+\item[vjust] vertical adjustment for printing language name on world map
+\item[Oc.hjust] horizontal adjustment for printing language name on map for Oceania
+\item[Oc.vjust] vertical adjustment for printing language name on map for Oceania
+\item[area.glottolog] area information based on glottolog \citep{glottolog4.5}
+\item[area.WALS] area information based on WALS \citep{wals}
+\item[ref.NomPers] bibliographic information on \gls{persn}; (Q) indicates questionnaire-based Routledge grammars
+\item[NomPers] value \textbf{y} iff information on \gls{persn} available; \textbf{n} if not
+\item[APC] value \textbf{y} iff \glspl{apc} attested; \textbf{n} if not
+\item[WO.WALS] verb-object order based on \citet{wals-83}
+\item[WO] data from WO.WALS and manually supplied values for gaps
+\item[adpos.manual] manually collected adposition-noun order data
+\item[adpos.WALS] adposition-noun order based on \citet{wals-85}
+\item[adpos] data from adpos.WALS and manually supplied values for gaps
+\item[genitive.WALS] genitive-noun order based on \citet{wals-86}
+\item[genitive] data from genitive.WALS and manually supplied values for gaps
+\item[DemDir.WALS] demonstrative-noun order based on \citet{wals-88}
+\item[DemDir.manual] manually collected demonstrative-noun order data
+\item[DemDir] data from DemDir.WALS and manually supplied values for gaps
+\item[genitive.WALS] genitive-noun order based on \citet{wals-86}
+\item[genitive] data from genitive.WALS and manually supplied values for gaps
+\item[ArtOrder] order of article and noun if available, \textbf{NA} if no articles
+\item[Art.with.Nompers] value \textbf{y} iff articles attested in \glspl{apc}, \textbf{n} if not possible, \textbf{unclear} if unknown, \textbf{NA} if language without articles
+\item[APC.dir] value \textbf{pre} iff prenominal \glspl{apc}, \textbf{post} for postnominal \glspl{apc}, \textbf{both} for ambidirectional \glspl{apc}, \textbf{apc} if no \glspl{apc} attested
+\item[boundPers] value \textbf{pre} iff prenominal \glspl{bpc}, \textbf{post} for postnominal \glspl{bpc}, \textbf{n} if no bound \gls{persn}-marking
+\item[boundPers.simultAPC] value \textbf{pre} if prenominal \gls{apc}-like marking attested simultaneously with bound \gls{persn}-marking, \textbf{post} if postnominal \gls{apc}-like marking attested simultaneously with bound \gls{persn}-marking, \textbf{NA} otherwise
+\item[PPDC] value \textbf{y} iff \glspl{ppdc} attested; \textbf{y-nn} if attested \glspl{ppdc} include only demonstrative and \gls{persn}-marking, but no lexical material; \textbf{NA} if not attested
+\item[PPDC.ref] bibliographic references for \glspl{ppdc}
+\end{description}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{List of examples}
 
@@ -117,7 +1227,7 @@ See \citealp[103; 203]{merlan1989} for discussion.
 
 
 \newpage
-\subsubsection{Diyari (pirl1241), Central Pama-Nyungan}
+\subsubsection{Diyari (dier1241), Central Pama-Nyungan}
 
 
 \pex 
@@ -559,7 +1669,7 @@ See among others: \citet[ch. 6]{lawrenz1993}, \citet{rauh2003, rauh2004} and \ci
 
 See \citet{stavrou1995} as well as \citet[chs. 1/2]{choi2014phd} and \citet[sec. 5]{hoehn2015unagr}.
 
-\subsubsection{Calabrian Greek/Greko (apul1236), Greek}
+\subsubsection{Calabrian Greek/Greko (aspr1238), Greek}
 
 \ex
 \begingl
@@ -1445,7 +2555,6 @@ See \citet[188]{pacifiqueetal1990} for some further (unglossed) examples.
 \a \begingl
 \gla manuih \textbf{yi}//
 \glb people we//
-\glft `we people'//
 \endgl
 \a 
 \begingl
@@ -1663,5 +2772,15 @@ See \citet[110, 253, 256f.]{fortescue1984}.
 
 See \citet[288, 297f.]{kornfilt1997}.
 
+
+\subsection*{Abbreviations}
+
+\printglosses 
+
+
+\bibliographystyle{unifiedNOURLNODOI-noampersand}
+\bibliography{S3-literature}
+
+\end{document}
 
 
