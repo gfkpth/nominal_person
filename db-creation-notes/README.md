@@ -1,6 +1,6 @@
 # Introduction
 
-This folder contains the scripts and raw data used to 
+This folder contains a jupyter notebook used to extract the example data from the LaTeX sources of Supplementary Material S3 of [Höhn (2024)](https://doi.org/10.1515/lingty-2023-0080), contained in S3.tex here.
 
 # Notes
 
