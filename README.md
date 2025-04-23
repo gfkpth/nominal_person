@@ -4,8 +4,8 @@ This repository contains a database with syntactic data on >100 languages with a
 
 More detailed information on relevant phenomena and the range of cross-linguistic variation can be found in [Höhn (2020)](https://doi.org/10.5334/gjgl.1121) and [Höhn (2024)](https://doi.org/10.1515/lingty-2023-0080) as well as [my dissertation](https://ling.auf.net/lingbuzz/003618). If you use this data, I'd appreciate it if you'd let me know. If you are a linguist interested in (ad)nominal person and struggle with using this database, feel free to get in touch.
 
-Note that this is currently work in progress. I am currently planning to reconceptualise the database in [CLDF](https://github.com/cldf/cldf/), a format designed for linguistic applications which will be compatible with generation of an sqlite database as well. I will publish a new repository for that once there is a usable version.
-
+Note that I am currently reconceptualising this database in [CLDF](https://github.com/cldf/cldf/), a format designed for linguistic applications which will be compatible with generation of an sqlite database as well. 
+That newer version can be found [here](https://github.com/gfkpth/nominalperson_cldf) (currently work in progress). **Note that that will be the only version actively developed going forth.**
 
 # Content of repository
 
