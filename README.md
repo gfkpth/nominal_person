@@ -305,13 +305,19 @@ ref\_page
 
 This section notes any significant changes to the content or organisation of the database.
 
+## 2025-07-24
+
+- removed unnecessary rum cldf directory
+- fixed issue with `Translated_Text` in generation of examples.csv in [db-creation-notes/CLDF/clld_preparation.ipynb](db-creation-notes/CLDF/clld_preparation.ipynb)
+
+
 ## 2025-04-23
 
-Updated introduction in README to note future deprecation of this version of the dataset in favour of the [CLDF version](https://github.com/gfkpth/nominalperson_cldf).
+- updated introduction in README to note future deprecation of this version of the dataset in favour of the [CLDF version](https://github.com/gfkpth/nominalperson_cldf).
 
 ## 2025-03-16
 
-Uploaded intermediate state of bring-up of CLDF version of the database. The CLDF version is incomplete, but there is now a csv with examples of adnominal person from various languages (examples.csv), semi-automatically extracted from supplementary material to Höhn (2024).
+- uploaded intermediate state of bring-up of CLDF version of the database. The CLDF version is incomplete, but there is now a csv with examples of adnominal person from various languages (examples.csv), semi-automatically extracted from supplementary material to Höhn (2024).
 
 
 # Acknowledgements
